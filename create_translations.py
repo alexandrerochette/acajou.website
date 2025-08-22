@@ -1,6 +1,7 @@
 import os
 import glob
 import csv
+from pathlib import Path
 
 def find_all_files_recursive(directory_path, condition= lambda x: True):
     """
@@ -12,8 +13,8 @@ def find_all_files_recursive(directory_path, condition= lambda x: True):
         for file in files:
             if condition(file):
 
-              #  full_path = os.path.join(root, file)
-                all_files.append(file)
+                full_path = os.path.join(root, file)
+                all_files.append(full_path)
     return all_files
 
 def get_translation_paths():
@@ -62,25 +63,40 @@ def create_translations():
 
 
     all_source_files = find_all_files_recursive(root_path)
-    for source_file in all_source_files:
+    for source_path in all_source_files:
+        
+        source_file_path = Path(source_path)
+        # To get the path relative to its anchor (e.g., '/')
+        source_file = source_file_path.relative_to(root_path) 
+        out_directory = os.path.join(output_path, source_file.parent)
+        try_make_dir(out_directory)
         with open(os.path.join(root_path, source_file), "rb") as inputf, open(os.path.join(output_path, source_file), "wb") as outf:
+          
             outf.write(inputf.read())
-        if source_file.endswith('.html'):   
+           
+        if  source_file.suffix == '.html':   
+                print(f"Translating source: {source_file}")
             
                 for path in localization_paths:
                     locale = locale_from_path(path)
                     mappings = load_translation_mapping(path)
                     locale_path = os.path.join(root_path, locale)
-            
+                    out_directory = os.path.join(output_path, locale, source_file.parent)
+                    try_make_dir(out_directory)
                     with open(os.path.join(root_path, source_file), "r", encoding="utf-8") as inputf, open(os.path.join(output_path, locale, source_file), "w", encoding="utf-8") as outf:
                         all_input_text = inputf.read()
                    
                         for mapping_key in sorted(mappings, key= len, reverse=True):
                             source_text = mapping_key
                             translated_text = mappings[mapping_key]
-                            print(source_text, '--', translated_text)
-                            all_input_text = all_input_text.replace(source_text, translated_text)
+                            if translated_text != "":
+                                all_input_text2 = all_input_text.replace(source_text, translated_text)
+                                if all_input_text2 != all_input_text:
+                                    print('  ', source_text, '-->', translated_text)
+                                    all_input_text = all_input_text2
                         outf.write(all_input_text)
 
-create_translations()
+
+if __name__ == '__main__':
+    create_translations()
 
