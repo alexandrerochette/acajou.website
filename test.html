@@ -1,0 +1,48 @@
+<html>
+
+<head>
+
+
+
+</head>
+
+<body>
+
+    <div class="my-element"></div>
+
+    <svg style="display: none;">
+        <defs>
+            <symbol id="my-svg-icon" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="var(--svg-fill-color)" />
+            </symbol>
+        </defs>
+    </svg>
+    <div id="icon2">
+        <svg viewBox="0 0 60 60">
+            <use xlink:href="#my-svg-icon" />
+        </svg>
+    </div>
+
+</body>
+<style>
+    :root {
+        --svg-fill-color: blue;
+    }
+
+    .my-element {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cuse href='%23my-svg-icon' /%3E%3C/svg%3E");
+        /* Adjust background-size, background-position, etc. as needed */
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        border: 1px solid black;
+        height: 250px;
+    }
+
+    .my-element:hover {
+        --svg-fill-color: red;
+        /* Changes the SVG fill on hover */
+    }
+</style>
+
+</html>

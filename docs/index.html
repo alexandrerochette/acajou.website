@@ -1,14 +1,198 @@
 <!DOCTYPE html>
 <html>
+
+
+
 <head>
   <link rel="stylesheet" href="style.css">
   <title>Acajou Studio</title>
+  <style>
+    body {
+
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header.hero {
+      display: block;
+      color: var(--hero-text);
+      background: var(--hero-background);
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .content {
+      display: block;
+      color: var(--content-text);
+      background-color: var(--content-background);
+      background-image: linear-gradient(-45deg, transparent 24px, rgba(0, 0, 0, 0.5) 25px, var(--hero-background) 25px),
+        /* One half of the triangle */
+        linear-gradient(45deg, transparent 24px, rgba(255, 255, 255, 0.5) 25px, var(--hero-background) 25px);
+      /* The other half */
+      background-size: 25px 23px;
+      /* Adjust for desired triangle size and spacing */
+      background-repeat: repeat-x;
+      background-position: top;
+
+
+      padding: 2.6em 2.5em;
+
+
+    }
+
+    .popover dt {
+      text-align: center;
+    }
+
+    .popover dd {
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      font-size: 1rem;
+    }
+
+    .app_summaries {
+      /* display: flex;
+      flex-direction: row;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 105rem;*/
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 105rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .app_summary {
+      /* margin-left: auto;
+      margin-right: auto;
+    
+      flex: 1;
+     
+*/
+      padding: 2rem 1rem;
+      text-decoration: none;
+      color: var(--content-text);
+      width: 20rem;
+      height: 20rem;
+      height: 100%;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+      border-radius: 1.0rem;
+    }
+
+
+    .app_summary::before {
+      content: "";
+      display: inline-block;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      width: 6rem;
+      height: 6rem;
+      border: 0.1rem dashed var(--content-text);
+      border-radius: 1.0rem;
+      transition-property: background-color, transform;
+      transition-duration: .25s;
+      transition-timing-function: ease-in-out;
+    }
+
+    .app_summary:hover::before {
+      background-color: blue;
+      transform: scale(1) rotate(0deg) translateY(-1.0rem);
+    }
+
+    .app_summary dt {
+      text-align: center;
+
+    }
+
+    .app_summary dd {
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      opacity: 0;
+
+    }
+
+    .app_summary:hover {
+      background: white;
+
+      color: var(--content-text);
+      filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, .2));
+      transition-property: background-color, filter;
+      transition-duration: .5s;
+      transition-timing-function: ease-in-out;
+    }
+
+    .app_summary:hover dd {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      opacity: 1;
+      transition-property: opacity;
+      transition-duration: .5s;
+      transition-timing-function: ease-in-out;
+
+    }
+  </style>
 </head>
+
 <body>
-  <header>
-    <h1>Acajou Studio</h1>
+
+
+  <header class="hero">
+    <h1 class="acajou.logo">acajou.studio</h1>
   </header>
-  
+  <section class="content">
+    <p>A little software shop.
+    <h2>Our Apps & Games</h2>
+    <dl class="app_summaries">
+
+      <a class="call-me-bingo app_summary" href="call-me-bingo">
+        <dt>Call Me Bingo</dt>
+        <dd>A bingo calling app.</dd>
+      </a>
+      <a class="pre-lune-iconic app_summary" href="pre-lune">
+        <dt>Pre-Lune</dt>
+        <dd>A Survial Game. For the Duke.</dd>
+      </a>
+      <a class="periodity-box app_summary" href="periodity-box">
+        <dt>Periodity Box</dt>
+        <dd>A simple chip-tune-like instrument and music creator.</dd>
+      </a>
+    </dl>
+  </section>
+  <footer class="footer">
+    hey
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+
+  </footer>
 </body>
-  
+
+
+
+
+
 </html>
