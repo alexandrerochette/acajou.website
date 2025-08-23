@@ -6,12 +6,18 @@
   --hero-text: var(--default-hero-text);
   --content-background: var(--default-content-background);
   --content-text: var(--default-content-text);
+  --footer-background: var(--default-footer-background);
+  --footer-text: var(--default-footer-text);
 }
 
+
 html {
+
   font-family: sans-serif;
+  font-weight: 300;
   margin: 0;
   padding: 0;
+  /*background-color: #444;*/
 }
 
 body {
@@ -19,6 +25,14 @@ body {
   margin: 0;
   padding: 0;
   background: var(--content-background);
+}
+
+
+body {
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 
@@ -38,43 +52,104 @@ body {
   padding-top: 0;
 }
 
-h1.acajoulogo {
+h1,
+h2 {
+  text-align: center;
   font-weight: lighter;
+}
+
+
+h1.acajoulogo {
   margin-bottom: 0.16rem;
 }
+
+
+
+header.hero {
+  display: block;
+  color: var(--hero-text);
+  background: var(--hero-background);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+header.hero::after {
+  content: "";
+  display: block;
+  position: relative;
+
+  z-index: -1;
+  background-image: linear-gradient(-45deg, transparent 25px, var(--hero-background) 25px),
+    linear-gradient(45deg, transparent 25px, var(--hero-background) 25px);
+  background-size: 25px 35px;
+
+  background-repeat: repeat-x;
+  background-position: bottom;
+  display: block;
+  min-height: 26px;
+  top: 26px;
+  border: 0px solid magenta;
+  filter: drop-shadow(0.05rem 0.15rem 0.025rem rgba(0, 0, 0, .1));
+}
+
+/*
+.content::after {
+  content: "";
+  display: block;
+  position: relative;
+
+  z-index: -1;
+  background-image: linear-gradient(-45deg, transparent 25px, var(--hero-background) 25px),
+    linear-gradient(45deg, transparent 25px, var(--hero-background) 25px);
+  background-size: 25px 35px;
+  
+  background-repeat: repeat-x;
+  background-position: bottom;
+  display: block;
+  min-height: 26px;
+  top: 26px;
+  border: 0px solid magenta;
+  filter: drop-shadow(0.05rem 0.2rem 0.025rem rgba(0, 0, 0, .2));
+}*/
+
 
 .footer::before {
 
   content: "";
   display: block;
-  width: 100%;
-  height: 1rem;
+  width: 100vw;
+  position: relative;
+  height: 25px;
+  top: -1.6rem;
+  left: -1rem;
+  margin: 0;
   margin-bottom: 0.5rem;
 
   padding: 0;
-  left: 0;
 
-  /* background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><polygon points="0,0 5,5 10,0" fill="green"/><polygon points="0.5,0 5,4.5 9.5,0" fill=" var(--hero-background)"/></svg>');
-      background-size: 2rem 2rem;
-      background-position: 0px 0px;
-      background-repeat: repeat-x*/
+
   background-image:
-    linear-gradient(-45deg, transparent 24px, rgba(0, 0, 0, 0.5) 25px, var(--content-background) 25px),
-    linear-gradient(45deg, transparent 24px, rgba(255, 255, 255, 0.5) 25px, var(--content-background) 25px);
+    linear-gradient(-45deg, transparent 25px, var(--content-background) 25px),
+    linear-gradient(45deg, transparent 25px, var(--content-background) 25px);
   background-repeat: repeat-x;
-  background-size: 25px 23px;
+  background-size: 25px 35px;
   background-position: top;
+  border: 0px solid magenta;
+  filter: drop-shadow(0.05rem 0.2rem 0.015rem rgba(0, 0, 0, .2));
 }
 
 .footer {
+  text-align: center;
+
   margin: 0;
-  padding: 0;
+  padding: 1.6rem 1rem;
   display: block;
 
   /*
       flex: 1;*/
-  background-color: #444;
-
+  background-color: var(--footer-background);
   /*padding: 1.6rem 1rem;*/
-  color: white;
+  color: var(--footer-text);
 }
