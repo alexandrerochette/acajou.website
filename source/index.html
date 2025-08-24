@@ -4,7 +4,7 @@
 
 
 <head>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <title>Acajou Studio</title>
   <style>
     .content {
@@ -54,7 +54,7 @@
     }
 
     .call-me-bingo::before {
-      background: url(images/call_me_bingo_icon_full.svg);
+      background: url(/images/call_me_bingo_icon_full.n.svg);
 
 
     }
@@ -146,20 +146,72 @@
       color: #4c2f27
     }
 
+
+
+    .acajoulogo::before {
+      color: var(--hero-text);
+      display: block;
+      content: "";
+      background-color: var(--hero-text);
+      /*background-image: url(images/acajou.logo.svg);*/
+      mask-image: url(/images/acajou.logo.svg);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      height: 20rem;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      background-position: center;
+      margin-bottom: 0;
+      border: 1px solid magenta;
+      visibility: visible;
+      padding: 0;
+      margin: 0;
+
+    }
+
     .acajoulogo {
-      font-family: MonteCarlo;
-      font-variant-alternates: swash(fancy);
+
+      /*font-family: "Megazoid";*/
+      visibility: hidden;
+
+      position: relative;
+      line-height: 0;
       filter: drop-shadow(0.08rem 0.08rem 0.025rem rgb(0, 0, 0, 0.2));
     }
 
+    .acajoulogo::after {
+      position: relative;
+      top: 0;
+      left: 0;
+      color: var(--hero-text);
+      display: block;
+      content: "";
+      height: 5rem;
+      /*background-image: url(images/acajou.logo.svg);*/
+      background-color: var(--hero-text);
+
+      mask-image: url(/images/acajou.studio.megazoid.svg);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      visibility: visible;
+      padding: 0;
+      margin: 0;
+
+    }
+
     .acajou {
-      font-size: 200%;
+      padding: 0;
+
+      font-size: 160%;
 
     }
 
-    .acajou h1 {
-      /*text-transform: capitalize;*/
-    }
+
+
+
 
     .acajou p {
       font-size: 75%;
@@ -181,7 +233,7 @@
       <a href="fr">Français</a>
     </nav>
     <div class="acajou">
-      <h1 class="acajoulogo">Acajou<span class="logo-sep">.</span>studio</h1>
+      <h1 class="acajoulogo">Acajou<span class="logo-sep">.</span>Studio</h1>
       <p>A little software shop.
     </div>
 

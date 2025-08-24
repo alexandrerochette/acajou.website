@@ -1,0 +1,34 @@
+    <style>
+        :root {
+            
+      
+
+        --accent-light: #96B5CA ; /* rgb(124,176,250);?*/
+        --accent-dark:  #5788a9; /* alt: rgb(87,136,169); */
+        --accent-very-dark: #42667F; /* rgb(65,132,191); */
+
+        --background-accent-light: var(--accent-light);
+        --background-accent-dark: var(--accent-dark);
+        --background-accent-very-dark: var(--accent-very-dark);
+
+        --background: rgb(238,238,238);
+        --background-test: magenta;
+        --background-light:rgb(238,238,238);
+        --background-dark: rgb(212,212,212);
+
+        --shadow-light: rgb(179,179,179);
+        --shadow-mid:rgb(117,117,117);
+
+        --grid-light:rgb(222,222,222);
+        --grid-dark: var(--shadow-mid);
+
+        --focused-light: rgb(255,226,127);
+        --focused-very-light: rgb(249,208,92);
+        --focused-dark: rgb(229,163,47);
+        --focused-very-dark: rgb(157,82,11);
+
+        }
+
+
+
+    </style>
