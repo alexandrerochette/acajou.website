@@ -5,6 +5,7 @@
 
 <head>
   <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/images/acajou.logo.16.png">
   <title>Acajou Studio</title>
   <style>
     .content {
@@ -122,24 +123,30 @@
 
     .topnav {
       text-align: right;
-      background-color: rgba(0, 0, 0, .2);
+      color: var(--footer-text);
+      background-color: rgba(46, 52, 63, 0.5);
     }
 
     .topnav a {
+
       display: inline-block;
       padding: 0.5em 1em;
       text-decoration: none;
       border: 1px outset transparent;
-      color: var(--hero-text);
-      transition-property: filter;
+      color: var(--footer-text);
+
+      opacity: 0.75;
+      transition-property: all;
       transition-duration: .5s;
       transition-timing-function: ease-in-out;
     }
 
     .topnav a:hover {
-      border: 1px outset var(--hero-text);
+      opacity: 1;
+      border: 1px outset var(--footer-text);
       filter: brightness(150%);
       background-color: rgba(255, 255, 255, .2);
+
     }
 
     .logo-sep {
@@ -234,7 +241,7 @@
     </nav>
     <div class="acajou">
       <h1 class="acajoulogo">Acajou<span class="logo-sep">.</span>Studio</h1>
-      <p>Un Petit Atelier de Logiciel
+      <p>Un Petit Atelier Logiciel
     </div>
 
 

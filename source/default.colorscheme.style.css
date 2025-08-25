@@ -10,6 +10,8 @@
 */
 :root {
     --default-hero-background: #AEB3BF;
+    --default-hero-background: #889FB6;
+    /*88A5B4*/
     --default-hero-text: #4c2f27;
     --default-content-background: #EFF1F7;
     --default-content-text: black;
