@@ -70,12 +70,12 @@ header.hero {
   display: block;
   color: var(--hero-text);
   background: var(--hero-background);
-  min-height: 80vh;
+  min-height: 62vh;
   display: flex;
   flex-direction: column;
 }
 
-header.hero.compact {
+body>header.hero.compact {
 
   min-height: 20vh;
 
