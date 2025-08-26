@@ -8,29 +8,7 @@
   <link rel="icon" href="/images/acajou.logo.16.png">
   <title>Acajou Studio</title>
   <style>
-    .content {
-
-      display: block;
-      color: var(--content-text);
-      background-color: transparent;
-
-
-      padding: 2.6em 2.5em;
-
-
-    }
-
-    .popover dt {
-      text-align: center;
-    }
-
-    .popover dd {
-      padding: 0;
-      margin: 0;
-      text-align: left;
-      font-size: 1rem;
-    }
-
+  
     .app_summaries {
       display: flex;
       flex-wrap: wrap;
@@ -98,15 +76,6 @@
 
     }
 
-    .app_summary:hover {
-      background: white;
-
-      color: var(--content-text);
-      filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, .2));
-      transition-property: background-color, filter;
-      transition-duration: .25s;
-      transition-timing-function: ease-in-out;
-    }
 
     .app_summary:hover dd {
       padding: 0;
@@ -121,33 +90,6 @@
 
     }
 
-    .topnav {
-      text-align: right;
-      color: var(--footer-text);
-      background-color: rgba(46, 52, 63, 0.5);
-    }
-
-    .topnav a {
-
-      display: inline-block;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      border: 1px outset transparent;
-      color: var(--footer-text);
-
-      opacity: 0.75;
-      transition-property: all;
-      transition-duration: .5s;
-      transition-timing-function: ease-in-out;
-    }
-
-    .topnav a:hover {
-      opacity: 1;
-      border: 1px outset var(--footer-text);
-      filter: brightness(150%);
-      background-color: rgba(255, 255, 255, .2);
-
-    }
 
     .logo-sep {
       color: #4c2f27
@@ -160,7 +102,6 @@
       display: block;
       content: "";
       background-color: var(--hero-text);
-      /*background-image: url(images/acajou.logo.svg);*/
       mask-image: url(/images/acajou.logo.svg);
       mask-size: contain;
       mask-repeat: no-repeat;
@@ -175,7 +116,6 @@
       visibility: visible;
       padding: 0;
       margin: 0;
-
     }
 
     .acajoulogo {
@@ -196,10 +136,9 @@
       display: block;
       content: "";
       height: 5rem;
-      /*background-image: url(images/acajou.logo.svg);*/
       background-color: var(--hero-text);
 
-      mask-image: url(/images/acajou.studio.megazoid.svg);
+      mask-image: url(/images/acajou.studio.text.svg);
       mask-size: contain;
       mask-repeat: no-repeat;
       mask-position: center;
@@ -224,11 +163,7 @@
       font-size: 75%;
     }
 
-    @font-feature-values "MonteCarlo" {
-      @swash {
-        fancy: 1;
-      }
-    }
+  
   </style>
 </head>
 
@@ -239,7 +174,7 @@
     <nav class="topnav">
       <a href="/">English</a>
     </nav>
-    <div class="acajou">
+    <div class="acajou hero" >
       <h1 class="acajoulogo">Acajou<span class="logo-sep">.</span>Studio</h1>
       <p>Un Petit Atelier Logiciel
     </div>
@@ -269,8 +204,7 @@
     </dl>
   </section>
   <footer class="footer">
-    La fin est proche.
-
+    
 
   </footer>
 </body>

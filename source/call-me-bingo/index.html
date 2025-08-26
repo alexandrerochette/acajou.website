@@ -1,3 +1,356 @@
 
-<h1>Call Me Bingo</h1>
-<a href="../">Home</a>
+
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/call-me-bingo.style.css">
+  <link rel="icon" href="/images/acajou.logo.16.png">
+  <title>Call Me Bingo</title>
+
+  <style>
+        :root {
+
+
+        --accent-light: #96B5CA ; /* rgb(124,176,250);?*/
+        --accent-dark:  #5788a9; /* alt: rgb(87,136,169); */
+        --accent-very-dark: #42667F; /* rgb(65,132,191); */
+
+        --background-accent-light: var(--accent-light);
+        --background-accent-dark: var(--accent-dark);
+        --background-accent-very-dark: var(--accent-very-dark);
+
+        --background: rgb(238,238,238);
+        --background-test: magenta;
+        --background-light:rgb(238,238,238);
+        --background-dark: rgb(212,212,212);
+
+        --shadow-light: rgb(179,179,179);
+        --shadow-mid:rgb(117,117,117);
+
+        --grid-light:rgb(222,222,222);
+        --grid-dark: var(--shadow-mid);
+
+        --focused-light: rgb(255,226,127);
+        --focused-very-light: rgb(249,208,92);
+        --focused-dark: rgb(229,163,47);
+        --focused-very-dark: rgb(157,82,11);
+
+
+            --default-hero-background: #5788a9;
+            /*88A5B4*/
+            --default-hero-text: white;
+            --default-content-background: #EFF1F7;
+            --default-content-text: black;
+            --default-footer-background: #2E343F;
+            --default-footer-text: #EFF1F7;
+        }
+
+        div.hero {
+           
+        }
+
+        h1.logo {
+            visibility: hidden;
+            line-height: 0;
+        }
+
+        h1.logo::before {
+                visibility: visible;
+          display: block;
+            content:"";
+            background-image: url(/call-me-bingo/images/call-me-semiblack.svg);
+            
+            height: 4.575rem;
+         
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:0;
+            margin-left:auto;
+            margin-right: auto;
+            background-size: contain;
+          
+            filter: invert();
+        }
+
+        h1.logo::after {
+                visibility: visible;
+          display: block;
+            content:"";
+            background-image: url(/call-me-bingo/images/bingo.png);
+            
+            height: 7.5rem;
+            width: 98vw;
+          
+            background-repeat: no-repeat;
+            background-position: center;
+            margin:2rem 0;
+            margin-left:auto;
+            margin-right: auto;
+            background-size: contain;
+         
+       
+        }
+
+        .gallery {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .gallery li {
+             margin: 1rem;
+        }
+        .gallery img {
+            max-width: 30vw;
+            max-height: 25vh;
+          
+        }
+        .content { margin-top: 2rem;}
+        figcaption {
+            text-align: center;
+        }
+        
+        .gallery img {
+            display: none;
+        }
+
+        .gallery figure {
+            cursor: pointer;
+        }
+
+        .gallery figure::before {
+            display:block;
+            content:"";
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+         
+            width: 15vw;
+            height: 25vh;
+    
+            transition-property: all;
+            transition-duration: .25s;
+            transition-timing-function: ease-in-out;
+            margin-bottom: 0.62rem;
+        }
+
+        .gallery figure.screenshot-intro::before {
+            background-image: url(/call-me-bingo/images/intro.png);
+        }
+
+     .gallery figure.screenshot-example1::before {
+            background-image: url(/call-me-bingo/images/example1.png);
+        }
+
+             .gallery figure.screenshot-select-winning-pattern::before {
+            background-image: url(/call-me-bingo/images/select-winning-pattern.png);
+        }
+
+             .gallery figure.screenshot-fullscreen::before {
+            background-image: url(/call-me-bingo/images/fullscreen.png);
+        }
+
+             .gallery figure.screenshot-uk::before {
+            background-image: url(/call-me-bingo/images/uk.png);
+        }
+
+             .gallery figure.screenshot-scanning::before {
+            background-image: url(/call-me-bingo/images/scanning.png);
+        }
+
+
+
+        .loaded-gallery-item
+        {
+            display:none;
+            opacity: 0;
+            transition-property: all;
+            transition-duration: .25s;
+            transition-timing-function: ease-in-out;
+        }
+
+        .loaded-gallery-item-activated {
+            display:block;
+            opacity: 1;
+            position:fixed;
+            top:0;
+            left:0;
+            width: calc(100vw - 6rem);
+            height: calc(100vh - 6rem);
+            
+            padding: 3em;
+
+            background: rgba(0,0,0,0.5);
+            
+         
+        }
+
+        .loaded-gallery-item-activated figure {
+            margin:0;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width:100%;
+            height:100%;
+            background:var(--content-background);
+            border-radius: 2rem;
+        }
+
+        .loaded-gallery-item-activated figure::before {
+             transition-property: all;
+            transition-duration: .25s;
+            transition-timing-function: ease-in-out;
+            top:0;
+            left:0;
+            right:0;
+     
+            width: 100%;
+            height: 80%;
+        }
+  </style>
+
+  </head>
+
+<body>
+
+
+  <header class="hero">
+    <nav class="topnav">
+      <a href="/" class=".home">⌂</a>
+      <a href="support/">Support</a>
+      <a href="/fr/call-me-bingo">Français</a>
+    </nav>
+    <div class="logo hero">
+      <h1 class="logo">Call Me Bingo</h1>
+    </div>
+
+
+  </header>
+
+  <section class="content">
+
+    <p>Bring excitement to your Bingo games with a modern, fully featured solution that makes running Bingo effortless and fun.
+    <ul>
+        <li>Supports both US-style and UK-style Bingo</li>
+        <li>Draw the next ball randomly, on a timer, or manually</li>
+        <li>Enjoy built-in voice calling with adjustable speed</li>
+        <li>Project a view of the draws on a big screen via AirPlay</li>
+        <li>Check winning cards instantly by scanning or entering them</li>
+    </ul>
+    <p></p>Run smoother, more engaging Bingo sessions—whether at home, in the community, or at large events!</p>
+
+    <h2>Screenshots</h2>
+    <ul class="gallery">
+        <li>
+            <figure class="screenshot-intro  gallery-item">
+                <img src="/call-me-bingo/images/intro.png" alt="Introduction Screen Screenshot">
+                <figcaption>Introduction Screen</figcaption>
+            </figure>
+        </li>
+
+        <li>
+            <figure class="screenshot-example1 gallery-item">
+                <img src="/call-me-bingo/images/example1.png" alt="Introduction Screen Screenshot">
+                <figcaption>Main Screen</figcaption>
+            </figure>
+        </li>
+
+        <li>
+            <figure class="screenshot-fullscreen gallery-item">
+                <img src="/call-me-bingo/images/fullscreen.png" alt="Introduction Screen Screenshot">
+                <figcaption>Full Screen presentation of current game (AirPlay)</figcaption>
+            </figure>
+        </li>
+
+        <li>
+            <figure class="screenshot-select-winning-pattern gallery-item">
+                <img src="/call-me-bingo/images/select-winning-pattern.png" alt="Introduction Screen Screenshot">
+                <figcaption>Winning Pattern Selection</figcaption>
+            </figure>
+        </li>
+
+        <li>
+            <figure class="screenshot-uk gallery-item">
+                <img src="/call-me-bingo/images/uk.png" alt="Introduction Screen Screenshot">
+                <figcaption>UK-style 90 balls support</figcaption>
+            </figure>
+        </li>
+
+       <li>
+            <figure class="screenshot-scanning gallery-item">
+                <img src="/call-me-bingo/images/scanning.png" alt="Introduction Screen Screenshot">
+                <figcaption>Card Scanning</figcaption>
+            </figure>
+        </li>
+    </ul>
+  </section>
+  <footer class="footer">
+
+
+  </footer>
+</body>
+
+  <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  console.log("DOM ready!");
+  const activatedClassName = "loaded-gallery-item-activated"
+    function handleGalleryClick(event, sourceThumnailItem, targetFullScreenItem) {
+        console.log("clicked gallery item")
+       
+        const source = targetFullScreenItem
+      //  const targetItem = event.target || event.srcElement;
+        console.log(source.classList)
+        if (source.classList.contains(activatedClassName)) {
+            source.classList.remove(activatedClassName);
+            
+        } else {
+            source.classList.add(activatedClassName);
+        }
+      
+        console.log(source.classList)
+    }
+
+    function handleGalleryFullScreenClick(event, sourceThumnailItem, targetFullScreenItem) {
+        console.log("clicked on big image")
+     
+         targetFullScreenItem.classList.remove(activatedClassName);
+    }
+
+    const elements = document.getElementsByClassName("gallery-item");
+    var relements = []
+    for (const galleryElement of elements) {
+        relements.push(galleryElement)
+    }
+    console.log(relements)
+    relements.forEach(function(galleryElement) {
+        const parentGalleryDiv = document.createElement("div");
+        parentGalleryDiv.classList.add("gallery");
+        parentGalleryDiv.classList.add("loaded-gallery-item");
+
+
+        const clonedElement = galleryElement.cloneNode(true);
+        parentGalleryDiv.append(clonedElement);
+
+        galleryElement.onclick = function(event) { handleGalleryClick(event, galleryElement, parentGalleryDiv) };
+        parentGalleryDiv.onclick = function(event) { handleGalleryClick(event, galleryElement, parentGalleryDiv) };
+        document.documentElement.append(parentGalleryDiv);
+    })
+    for (const galleryElement of relements) {
+    
+    }
+  
+    });
+
+
+  </script>
+
+</html>
