@@ -1,0 +1,33 @@
+/*
+:root {
+    --default-hero-background: #4D5E75;
+    --default-hero-text: #e5e3e3;
+    --default-content-background: #EFF1F7;
+    --default-content-text: black;
+    --default-footer-background: #4D474E;
+    --default-footer-text: #EFF1F7;
+}
+*/
+:root {
+    --default-hero-background: #AEB3BF;
+
+    --default-hero-background: #889FB6;
+    --default-hero-background: #BDC7D6;
+    /*88A5B4*/
+    --default-hero-text: #4c2f27;
+    --default-content-background: #EFF1F7;
+    --default-content-text: black;
+    --default-footer-background: #2E343F;
+    --default-footer-text: #EFF1F7;
+}
+
+
+/*
+base: 4c2f27
+complementary : #27444C
+
+shade: #6E4438
+
+triad : #274C2F (greenish)  #2F274C (purpleish)
+
+tetradic: #324C27 #27444C #41274C

@@ -1,0 +1,145 @@
+
+
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/call-me-bingo.style.css">
+  <link rel="icon" href="/images/acajou.logo.16.png">
+  <title>Support - Call Me Bingo</title>
+
+  <style>
+        :root {
+
+
+        --accent-light: #96B5CA ; /* rgb(124,176,250);?*/
+        --accent-dark:  #5788a9; /* alt: rgb(87,136,169); */
+        --accent-very-dark: #42667F; /* rgb(65,132,191); */
+
+        --background-accent-light: var(--accent-light);
+        --background-accent-dark: var(--accent-dark);
+        --background-accent-very-dark: var(--accent-very-dark);
+
+        --background: rgb(238,238,238);
+        --background-test: magenta;
+        --background-light:rgb(238,238,238);
+        --background-dark: rgb(212,212,212);
+
+        --shadow-light: rgb(179,179,179);
+        --shadow-mid:rgb(117,117,117);
+
+        --grid-light:rgb(222,222,222);
+        --grid-dark: var(--shadow-mid);
+
+        --focused-light: rgb(255,226,127);
+        --focused-very-light: rgb(249,208,92);
+        --focused-dark: rgb(229,163,47);
+        --focused-very-dark: rgb(157,82,11);
+
+
+            --default-hero-background: #5788a9;
+            /*88A5B4*/
+            --default-hero-text: white;
+            --default-content-background: #EFF1F7;
+            --default-content-text: black;
+            --default-footer-background: #2E343F;
+            --default-footer-text: #EFF1F7;
+        }
+
+        div.hero {
+           
+        }
+
+        h1.logo {
+            visibility: hidden;
+            line-height: 0;
+        }
+
+        h1.logo::before {
+                visibility: visible;
+          display: block;
+            content:"";
+            background-image: url(/call-me-bingo/images/call-me-semiblack.svg);
+            
+            height: calc(4.575rem/2);
+         
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:0;
+            margin-left:auto;
+            margin-right: auto;
+            background-size: contain;
+          
+            filter: invert();
+        }
+
+        h1.logo::after {
+                visibility: visible;
+          display: block;
+            content:"";
+            background-image: url(/call-me-bingo/images/bingo.png);
+            
+            height: calc(7.5rem/2);
+            width: 98vw;
+          
+            background-repeat: no-repeat;
+            background-position: center;
+            margin:2rem 0;
+            margin-left:auto;
+            margin-right: auto;
+            background-size: contain;
+         
+       
+        }
+
+
+  </style>
+
+  </head>
+
+<body>
+
+
+  <header class="compact hero">
+    <nav class="topnav">
+      <a href="/" class=".home">⌂</a>
+      <a href="../">Call-Me-Bingo</a>
+      <a href="/fr/call-me-bingo/support">Français</a>
+    </nav>
+    <div class="logo hero">
+      <h1 class="logo">Call Me Bingo</h1>
+    </div>
+
+
+  </header>
+
+  <section class="content">
+
+    <p>To get support contact <a href="" id="comm">Acajou Support</a>
+
+  </section>
+  <footer class="footer">
+
+
+  </footer>
+</body>
+
+  <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const prefix = "support";
+    const suffix = "acajou.studio"
+    const commElement = document.getElementById("comm");
+    commElement.href = "mailto:"+ prefix +"@" + suffix;
+  
+    });
+
+
+  </script>
+
+</html>
