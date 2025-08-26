@@ -2,6 +2,7 @@ import create_translations
 from bs4 import BeautifulSoup
 import csv
 
+
 paths = create_translations.get_translation_paths()
 source_paths = create_translations.find_all_files_recursive('source/', lambda x: x.endswith('.html'))
 all_keys = set()
@@ -9,7 +10,7 @@ for path in source_paths:
     with open(path, encoding='utf-8') as inputf:
         html_doc = inputf.read() 
         soup = BeautifulSoup(html_doc, 'html.parser')
-        text = soup.get_text()
+        text = soup.get_text(separator="\n")
         text_elements = set([t.strip() for t in text.split('\n') if len(t) > 0])
         #print(text_elements)
         all_keys.update(text_elements)

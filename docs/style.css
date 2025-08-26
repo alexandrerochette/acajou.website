@@ -65,6 +65,7 @@ h1.acajoulogo {
 
 
 
+
 header.hero {
   display: block;
   color: var(--hero-text);
@@ -74,7 +75,15 @@ header.hero {
   flex-direction: column;
 }
 
+header.hero.compact {
 
+  min-height: 20vh;
+
+}
+
+.content {
+  flex:1;
+}
 header.hero::after {
   content: "";
   display: block;
