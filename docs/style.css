@@ -53,13 +53,6 @@ h2 {
 
 
 
-.acajou p {
-  margin: 0;
-  padding: 0;
-
-  font-size: 3vh;
-}
-
 h1.logo {
   border: 1px solid olive;
   height: 35%;
@@ -70,12 +63,13 @@ h1.logo {
 }
 
 header.hero {
-  display: block;
+
   color: var(--hero-text);
   background: var(--hero-background);
   display: flex;
   flex-direction: column;
   align-content: center;
+
 }
 
 div.hero {
@@ -86,7 +80,6 @@ div.hero {
   align-content: center;
   min-height: calc(50vh - 26px);
 
-  height: calc(50vh - 26px);
   font-weight: lighter;
   flex: 1;
 }
@@ -106,6 +99,7 @@ header.hero::after {
   display: block;
   min-height: 26px;
   top: 26px;
+  margin-top: -26px;
   border: 0px solid magenta;
   filter: drop-shadow(0.05rem 0.15rem 0.025rem rgba(0, 0, 0, .1));
 
@@ -114,7 +108,8 @@ header.hero::after {
 
 body>header.hero.compact>div {
   min-height: calc(20vh - 26px);
-  height: calc(20vh - 26px);
+
+  flex: 1;
 }
 
 body>header.hero.compact>div>h1.logo {
@@ -149,21 +144,38 @@ dl {
   filter: drop-shadow(0.05rem 0.2rem 0.025rem rgba(0, 0, 0, .2));
 }*/
 
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  align-content: center;
+
+
+  color: var(--content-text);
+  background-color: transparent;
+
+  /*margin-bottom: -26px;*/
+  padding: calc(26px + 2rem) 2.5rem 0 2.5rem;
+
+
+}
 
 .content::after {
 
   content: "";
-  display: block;
+  display: inline-block;
+  align-self: stretch;
   width: calc(99.9vw - 2px);
-  position: relative;
+  /*position: relative;*/
 
 
-
+  padding-top: calc(26px + 2rem);
   margin: 0;
+  margin-top: auto;
+  margin-left: -2.5rem;
   /*margin-bottom: 0.5rem;*/
 
-  left: -2.5rem;
-  right: 13rem;
+
 
 
   z-index: -1;
@@ -172,21 +184,23 @@ dl {
   background-size: 34px 35px;
 
   background-repeat: repeat-x;
-  background-position: top;
-  display: block;
+  background-position: bottom;
+
   min-height: 26px;
-  top: 2rem;
+  /*top: 2rem;*/
   border: 0px solid magenta;
   filter: drop-shadow(-0.05rem 0.15rem 0.025rem rgba(0, 0, 0, .1));
 }
 
 .footer {
   text-align: center;
-
+  flex: 1;
   margin: 0;
-  padding: 1.6rem 1rem;
+  /*padding: 1.6rem 1rem;*/
+  padding: 0;
   display: block;
   background-color: var(--footer-background);
+  min-height: 2rem;
   /*
    
       flex: 1;*/
@@ -227,18 +241,4 @@ dl {
 
 .home {
   text-align: left;
-}
-
-.content {
-
-  align-content: center;
-
-  display: block;
-  color: var(--content-text);
-  background-color: transparent;
-
-  margin-bottom: -26px;
-  padding: calc(26px + 2rem) 2.5rem calc(26px + 2rem) 2.5rem;
-
-
 }
