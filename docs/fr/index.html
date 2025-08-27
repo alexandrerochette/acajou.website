@@ -8,7 +8,6 @@
   <link rel="icon" href="/images/acajou.logo.16.png">
   <title>Acajou Studio</title>
   <style>
-  
     .app_summaries {
       display: flex;
       flex-wrap: wrap;
@@ -17,10 +16,13 @@
       max-width: 105rem;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 0;
+
     }
 
     .app_summary {
-      padding: 2rem 1rem 1.42rem 1rem;
+
+      padding: 1.62rem 1rem 0 1rem;
       text-decoration: none;
       color: var(--content-text);
       width: 20rem;
@@ -72,7 +74,7 @@
       padding: 0;
       margin: 0.62rem 0 0 0;
       text-align: center;
-      opacity: 0;
+      opacity: 0.62;
 
     }
 
@@ -97,7 +99,7 @@
 
 
 
-    .acajoulogo::before {
+    h1.logo::before {
       color: var(--hero-text);
       display: block;
       content: "";
@@ -106,7 +108,7 @@
       mask-size: contain;
       mask-repeat: no-repeat;
       mask-position: center;
-      height: 20rem;
+      min-height: 85%;
       background-size: contain;
       background-repeat: no-repeat;
 
@@ -118,9 +120,9 @@
       margin: 0;
     }
 
-    .acajoulogo {
+    h1.logo {
+      height: 70%;
 
-      /*font-family: "Megazoid";*/
       visibility: hidden;
 
       position: relative;
@@ -128,14 +130,14 @@
       filter: drop-shadow(0.08rem 0.08rem 0.025rem rgb(0, 0, 0, 0.2));
     }
 
-    .acajoulogo::after {
+    h1.logo::after {
       position: relative;
       top: 0;
       left: 0;
       color: var(--hero-text);
       display: block;
       content: "";
-      height: 5rem;
+      height: 15%;
       background-color: var(--hero-text);
 
       mask-image: url(/images/acajou.studio.text.svg);
@@ -148,22 +150,20 @@
 
     }
 
+    .acajou p {
+      margin: 0;
+      padding: 0;
+
+      font-size: 2vh;
+    }
+
+
     .acajou {
       padding: 0;
 
       font-size: 160%;
 
     }
-
-
-
-
-
-    .acajou p {
-      font-size: 75%;
-    }
-
-  
   </style>
 </head>
 
@@ -174,8 +174,8 @@
     <nav class="topnav">
       <a href="/">English</a>
     </nav>
-    <div class="acajou hero" >
-      <h1 class="acajoulogo">Acajou<span class="logo-sep">.</span>Studio</h1>
+    <div class="acajou hero">
+      <h1 class="logo">Acajou<span class="logo-sep">.</span>Studio</h1>
       <p>Un Petit Atelier Logiciel
     </div>
 
@@ -204,7 +204,7 @@
     </dl>
   </section>
   <footer class="footer">
-    
+
 
   </footer>
 </body>
