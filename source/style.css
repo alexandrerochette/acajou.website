@@ -231,14 +231,38 @@ dl {
   transition-timing-function: ease-in-out;
 }
 
-.topnav a:hover {
+.topnav a:hover{
   opacity: 1;
   border: 1px outset var(--footer-text);
   filter: brightness(150%);
   background-color: rgba(255, 255, 255, .2);
-
 }
 
-.home {
-  text-align: left;
+.topnav>a.home:hover::after {
+  opacity: 1;
+  border: 1px outset var(--footer-text);
+  filter: brightness(150%);
+  background-color: rgba(255, 255, 255, .2);
+}
+
+
+.topnav>a.home {
+  display:inline-block;
+  padding:0;
+  visibility: hidden;
+}
+
+.topnav>a.home::after {
+  content: "";
+  background-image:  url("/images/house.svg");
+  padding: 0.5em 1em;
+  opacity: 0.75;
+  border: 1px outset transparent;
+  visibility: visible;
+  background-size: 1.2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out;
 }

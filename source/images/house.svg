@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="400" height="400">
+    <g
+    fill="none"
+    transform="translate(0 160)">
+    <path fill="none" stroke="#fff" stroke-width="16" d="M56 0v170a60 60 0 0 0 60 60h168a60 60 0 0 0 60-60V0"/>
+    <path fill="#fff" d="M148 231V100a22 22 0 0 1 22-22h61.593a22 22 0 0 1 22 22v130"/>
+    </g>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" 
+      d="
+      M200 16.6
+      L383 200
+      M200 16.6
+      L16.6 200"/>
+</svg>
