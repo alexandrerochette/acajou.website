@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+
+
+ 
+    <!--link rel="stylesheet" href="/private-photo.style.css"-->
+    <link rel="icon" href="/images/acajou.logo.16.png">
+    <title>Private Photo</title>
+<style>
+    html {
+        font-family: "Futura", sans-serif;
+        height: 100%;
+        color: white;
+        background: rgb(42, 29, 65) 
+    }
+
+    body {
+        margin: 0;
+        /* We use min-height so it's at least the screen size, but can grow */
+        min-height: 100%; 
+        
+        /* The Gradient */
+        background-image: linear-gradient(135deg, #504173 0%, #0f0a23 100%);
+        
+        /* This is the magic line: it stops the image from repeating */
+        background-repeat: no-repeat;
+        
+        /* This ensures the gradient stretches to the current size of the body */
+        background-size: cover;
+      
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+    }
+    .content h1 {
+        text-align: center;
+    }
+
+    header {
+        padding: 0.2em 0.4em;
+         background: linear-gradient(to bottom, 
+        #2a1d41 0%, 
+        #2a1d41 1.9em, 
+        transparent 2.1em, 
+        transparent 100%);
+        
+    }
+    header a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .hero {
+        display: flex;
+        flex-wrap: wrap;           /* Allows the logo div to drop to a new line */
+        justify-content: space-between; /* Pushes the two navs to opposite sides */
+        align-items: center;       /* Vertically aligns nav items if they have different heights */
+    }
+    .topnav, .subsections_nav {
+        display: flex;
+        gap: 1em;                 /* Adds space between the links */
+    }
+  
+
+    /* This forces the logo container to its own row */
+    .logo.hero {
+        flex-basis: 100%;         
+        text-align: center;     
+
+    }
+
+    h1.logo {
+        color:#e9f8d2;
+        position: relative;
+        font-size: 500%;
+        font-weight: black;
+        display: block;
+        
+        text-align: center;
+        width: 100%;
+      
+        z-index: 1;
+        /*letter-spacing: 0.11cap;*/
+        /*text-shadow: 0.05em 0.05em 0.02em rgba(0,0,0,0.5);*/
+
+    }
+
+    h1.logo::before {
+        content: "";
+        display:block;
+        background-image: url(/private-photo/images/logo.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 20%; 
+        aspect-ratio: 1 / 1;
+        background-size: contain;       
+        visibility: visible;
+        padding: 0;
+  
+        margin: 0 auto 0.3em auto;
+
+    }
+    h1.logo::after {
+        content: "";
+        position: absolute;
+        
+        /* Center it behind the H1 */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+        /* Make this large enough to be the 'background' */
+        aspect-ratio: 1 / 1;
+        height: 250%; /* Taller than the text to create that vertical glow */
+        
+        
+        
+       /* background-image: ;*/
+       background-image: radial-gradient(rgb(42, 29, 65), transparent 65%) ;
+       
+        /* Put it behind everything */
+        z-index: -1; 
+        
+        /* This ensures it doesn't block mouse clicks on links */
+        pointer-events: none; 
+    }
+
+    .message {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <header class="hero">
+        <nav class="topnav">
+            <a href="../" class="home">⌂</a>
+            <a href="./">Private Photo</a>
+          
+        </nav>
+        <nav class="subsections_nav">
+            <a href="privacy" class="privacy">Déclaration de confidentialité</a>
+          
+            <a href="/fr/private-photo">English</a>
+        </nav>
+        <div class="logo hero">
+            <h1 class="logo">Private Photo</h1>
+        </div>
+
+
+    </header>
+
+    <section class="content">
+        <h1>Garder votre librairie de photo soigneusement maintenue</h1>
+        <p class="message"> Bientôt sur l'App Store!</p>
+    </section>
+
+
+    <footer class="footer">
+
+
+    </footer>
+</body>

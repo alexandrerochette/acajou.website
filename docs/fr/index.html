@@ -40,6 +40,11 @@
 
     }
 
+    .app_summary.private-photo  {
+      
+    }
+ 
+
     .app_summary::before {
       content: "";
       display: inline-block;
@@ -49,7 +54,7 @@
       width: 12rem;
       height: 12rem;
       /*border: 0.1rem dashed var(--content-text);*/
-      border-radius: 1.0rem;
+      border-radius: 2.4rem;
       transition-property: background-color, transform;
       transition-duration: .25s;
       transition-timing-function: ease-in-out;
@@ -59,6 +64,24 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
+
+   .private-photo::before {
+      border: 1px solid rgba(30, 10, 45, 0.2);
+      background-image:  url(/private-photo/images/logo.svg),
+      linear-gradient(45deg, black, white)
+     ;
+
+
+     
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: whitesmoke;
+      background: 
+        url(/private-photo/images/logo.svg)no-repeat center / 72%, /* image, repeat, position / size */
+        radial-gradient( #504173 , #0f0a23 88%);
+    }
+
 
     .app_summary:hover::before {
       /*background-color: blue;*/
@@ -172,7 +195,7 @@
 
   <header class="hero">
     <nav class="topnav">
-      <a href="/">English</a>
+      <a href="fr">English</a>
     </nav>
     <div class="acajou hero">
       <h1 class="logo">Acajou<span class="logo-sep">.</span>Studio</h1>
@@ -187,10 +210,20 @@
     <h2>Nos Jeux et Applications</h2>
     <dl class="app_summaries">
 
+     <a class="private-photo app_summary" href="private-photo">
+        <dt>Private Photo</dt>
+        <dd><h3>Une Application de Photographie </h3>
+          <p>Vous en avez assez de regarder de tomber sur la photo d'un grain de beauté envoyée à votre médecin la semaine dernière alors que vous regardiez vos photos de vacances? Gardez ces clichés hors de votre bibliothèque principale avec Private Photo! Toute photo prise depuis l'application Private Photo y reste stockée et n'apparaît ni dans votre pellicule, ni dans votre bibliothèque principale.</dd>
+      </a>
+
       <a class="call-me-bingo app_summary" href="call-me-bingo">
         <dt>Call Me Bingo</dt>
-        <dd>Une Application de Bingo</dd>
+        <dd><h3>Une Application de Bingo</h3>
+          <p> Besoin d'un animateur pour votre prochain Bingo ? Découvrez Call-Me-Bingo ! L'app s'occupe du tirage et de la lecture des numéros à haute voix !</p>
+        </dd>
       </a>
+
+ 
       <!-- 
       <a class="pre-lune-iconic app_summary" href="pre-lune">
         <dt>Pre-Lune</dt>
