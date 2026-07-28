@@ -1,249 +1,574 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 
 
 <head>
-  <link rel="stylesheet" href="/style.css">
+  <meta charset="UTF-8">
+
+
+  <!--link rel="stylesheet" href="/private-photo.style.css"-->
   <link rel="icon" href="/images/acajou.logo.16.png">
-  <title>Acajou Studio</title>
+  <title>Private Photo</title>
   <style>
-    .app_summaries {
+    <!-- 
+    html {
+      font-family: sans-serif;
+      color: black
+    }
+
+    html,
+    body {
+      
+     min-height: 100dvh;
+      margin: 0;
+    }
+
+    body {
+      margin: 0;
+
+
+  display: grid;
+
+ grid-template-rows: auto 1fr auto; 
+     
+      background: transparent;
+
+
+    }
+    .hero-stack {
+      grid-row: 1;
+    }
+
+  
+    .content
+    {
+      
+        margin-top: 0;
+       grid-row: 2;
+    }
+
+
+
+    footer {
+      grid-row: 3;
+
+      margin-top: 6em;
+      text-align: center;
+
+    }
+
+    footer {
+      padding: 2em 0 1em 0;
+      background-color: hsl(202, 12%, 27%);
+      color: hsla(189, 7%, 52%, 1);
+    }
+    
+    html {
+      /* 3. Ensure the gradient stretches to the absolute bottom of the document */
+   
+     min-height: 100dvh;
+
+      /* Apply background here */
+      background-image: linear-gradient(135deg, white 0%, hsla(189, 10%, 88%, 0.98) 100%);
+      background-size: cover;
+      background-size: 100% 100%;
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-color: white;
+      /* Fallback for the very bottom */
+      overscroll-behavior-y: contain;
+    }
+
+    h2 {
+      font-weight: lighter;
+      color: #1F1610;
+   
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+
+      margin-top: 0
+    }
+
+    .content h1 {
+      text-align: center;
+    }
+
+    header {
+        margin-top: 0;
+      padding: 0.8em 0.4em;
+      background: linear-gradient(to bottom,
+          hsla(202, 6%, 43%, 0.75) 0%,
+          hsla(202, 6%, 75%, 0.75) 2.5lh,
+          transparent 2.5lh,
+          transparent 100%);
+      text-shadow:
+        -1px -1px 0 hsla(189, 12%, 43%, 0.5),
+        1px -1px 0 hsla(189, 12%, 43%, 0.5),
+        -1px 1px 0 hsla(189, 12%, 43%, 0.5),
+        1px 1px 0 hsla(189, 12%, 43%, 0.5);
+    }
+
+    header a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .hero {
       display: flex;
       flex-wrap: wrap;
+      /* Allows the logo div to drop to a new line */
+      justify-content: space-between;
+      /* Pushes the two navs to opposite sides */
       align-items: center;
-      justify-content: center;
-      max-width: 105rem;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 0;
-
+      /* Vertically aligns nav items if they have different heights */
     }
 
-    .app_summary {
+    .topnav,
+    .subsections_nav {
+      display: flex;
+      gap: 1em;
+      /* Adds space between the links */
+    }
 
-      padding: 1.62rem 1rem 0 1rem;
-      text-decoration: none;
-      color: var(--content-text);
-      width: 20rem;
-      height: 20rem;
-      height: 100%;
+
+
+    .logo.hero {
+      flex-basis: 100%;
       text-align: center;
-      display: inline-block;
-      position: relative;
-      border-radius: 1.0rem;
-    }
-
-    .call-me-bingo::before {
-      background: url(/images/call_me_bingo_icon_full.n.svg);
-
-
-    }
-
-    .app_summary.private-photo  {
-      
-    }
- 
-
-    .app_summary::before {
-      content: "";
-      display: inline-block;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      width: 12rem;
-      height: 12rem;
-      /*border: 0.1rem dashed var(--content-text);*/
-      border-radius: 2.4rem;
-      transition-property: background-color, transform;
-      transition-duration: .25s;
-      transition-timing-function: ease-in-out;
-      transform: scale(0.9);
-      filter: drop-shadow(0.05rem 0.05rem 0.25rem rgba(0, 0, 0, .2));
-      padding-bottom: 0.62rem;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-
-   .private-photo::before {
-      border: 1px solid rgba(30, 10, 45, 0.2);
-      background-image:  url(/private-photo/images/logo.svg),
-      linear-gradient(45deg, black, white)
-     ;
-
-
-     
-      background-size: 80%;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: whitesmoke;
-      background: 
-        url(/private-photo/images/logo.svg)no-repeat center / 72%, /* image, repeat, position / size */
-        radial-gradient( #504173 , #0f0a23 88%);
-    }
-
-
-    .app_summary:hover::before {
-      /*background-color: blue;*/
-      transform: scale(1) rotate(0deg) translateY(-.5rem);
-    }
-
-    .app_summary dt {
-      text-align: center;
-
-    }
-
-    .app_summary dd {
-      padding: 0;
-      margin: 0.62rem 0 0 0;
-      text-align: center;
-      opacity: 0.62;
-
-    }
-
-
-    .app_summary:hover dd {
-      padding: 0;
-
-      text-align: center;
-      opacity: 0.62;
-      transition-property: opacity;
-      transition-duration: .5s;
-      transition-timing-function: ease-in-out;
-
-
-
-    }
-
-
-    .logo-sep {
-      color: #4c2f27
-    }
-
-
-
-    h1.logo::before {
-      color: var(--hero-text);
-      display: block;
-      content: "";
-      background-color: var(--hero-text);
-      mask-image: url(/images/acajou.logo.svg);
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      min-height: 85%;
-      background-size: contain;
-      background-repeat: no-repeat;
-
-      background-position: center;
-      margin-bottom: 0;
-      border: 1px solid magenta;
-      visibility: visible;
       padding: 0;
       margin: 0;
+
+
+
+      background-image: url(/images/acajou.studio.dark.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      /* width: 19%; */
+      height: 25vh;
+      aspect-ratio: 1 / 1;
+      background-size: auto 56%;
+      background-position: 50% 50%;
+      visibility: visible;
+      padding: 0;
+
+      margin: 0.5em auto 0.3em auto;
+
     }
 
     h1.logo {
-      height: 70%;
 
-      visibility: hidden;
 
+      color: #fbfafc;
       position: relative;
-      line-height: 0;
-      filter: drop-shadow(0.08rem 0.08rem 0.025rem rgb(0, 0, 0, 0.2));
+      font-size: max(200%, 7.8vh);
+      font-weight: bold;
+      display: block;
+
+      text-align: center;
+      width: 100%;
+
+      z-index: 1;
+      /*letter-spacing: 0.11cap;*/
+      /*text-shadow: 0.05em 0.05em 0.02em rgba(0,0,0,0.5);*/
+
+      margin: 0;
+
     }
 
-    h1.logo::after {
-      position: relative;
+
+
+
+    .message {
+      text-align: center;
+    }
+
+    /*
+    ul.features {
+     
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    
+        scroll-behavior: smooth;
+        list-style: none;
+        padding: 0;
+
+        gap: 2em;
+   
+        margin-left: -10vw; 
+        margin-right: -10vw;
+
+  
+        padding-left: 10vw;
+        padding-right: 10vw;
+
+     
+        scrollbar-width: none; 
+         
+    } */
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      /* Shrinks the UL box to match the widest LI */
+      margin-left: auto;
+      /* Combines with margin-right to center the UL */
+      margin-right: auto;
+
+      padding: 0;
+      /* Optional: resets default browser bullet padding */
+      list-style: none;
+      gap: 1.6em;
+      /* Optional: removes default bullet points */
+    }
+
+    @property --pp-gradient-start {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: white;
+      /* Your starting default color */
+    }
+
+    @property --pp-gradient-end {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: white;
+      /* Match start to keep it a solid background initially */
+    }
+
+    /* 2. Force all items to stretch to the full width of their narrowed parent */
+    ul li {
+      display: grid;
+      /* Turns the item into a flex container */
+      justify-content: center;
+      /* Centers the text inside each individual item */
+
+      margin: 0;
+      padding: 0;
+      min-width: 120px;
+
+      border-radius: 2.4rem;
+      background-color: white;
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+      background-image: linear-gradient(135deg, var(--pp-gradient-start) 0%, var(--pp-gradient-end) 100%);
+      transition: transform 0.3s ease,
+        --pp-gradient-start 0.36s ease,
+        --pp-gradient-end 0.36s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+    }
+
+    ul li h3 {
+      margin: 0;
+      padding: 0;
+      display: inline;
+
+    }
+
+    ul li a {
+      display: block;
+      margin: 0;
+      padding: 1em;
+
+      padding-top: 16em;
+      padding-left: 5em;
+      padding-right: 5em;
+      text-decoration: none;
+      color: inherit;
+
+
+
+    }
+
+    ul li:hover {
+      transform: scale(1.1) rotate(0deg) translateY(-.5rem);
+      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    ul li:has(a.target_private-photo):hover {
+      --pp-gradient-start: #504173;
+      --pp-gradient-end: #0f0a23;
+      color: white;
+    }
+
+    ul li a.target_private-photo {
+      background-image: url(/private-photo/images/logo.svg);
+      background-repeat: no-repeat;
+      background-size: 11em;
+      background-position: 50% calc(50% - 1em);
+    }
+
+
+
+    ul li a.target_call-me-bingo {
+      background-image: url(/images/cal-me-bingo-2.31.svg);
+      background-repeat: no-repeat;
+      background-size: 11em;
+      background-position: 50% calc(50% - 1em);
+    }
+
+    /*
+    ul.features li {
+
+        flex: 0 1 33%; 
+
+   
+        min-width: 20em; 
+
+    
+        max-width: 33%;
+
+        scroll-snap-align: center;
+        color:#0f0a23;
+        background-color: #fbfafc;
+        border-radius: 2em;
+      
+        border: 1px solid rgba(15, 10, 35, 0.3);
+    }*/
+
+    /* ul.features li a {
+        text-decoration: none;
+        color: inherit;
+        display: block; 
+        padding: 2rem;
+    }
+   
+    ul.features::-webkit-scrollbar {
+        display: none;
+    }
+    ul.features {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }*/
+
+    hgroup {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 1.4em;
+    }
+
+    hgroup h2 {
+      font-size: 190%;
+      margin-bottom: 0.0em;
+    }
+
+    hgroup p {
+      margin-top: 0;
+      font-size: 140%
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    /*
+    .features>li {
+        background-repeat: no-repeat;
+        background-size: auto 30%;
+        background-position: center 1em;
+        padding-top: 3em;
+    }*/
+
+
+
+    .replacement * {
+      visibility: hidden;
+    }
+
+    body:has(.target_private-photo:hover) .summary_private-photo {
+
+      opacity: 1;
+      /* Fully visible */
+      visibility: visible;
+   
+
+      color: white;
+    }
+
+    .summary_call-me-bingo {
+      background-image: linear-gradient(135deg, hsl(210, 67%, 46%) 0%, hsl(218, 67%, 38%) 100%);
+      color: white;
+    }
+
+    .summary_call-me-bingo:after {
+      content: "";
+      position: absolute;
       top: 0;
       left: 0;
-      color: var(--hero-text);
+      right: 0;
+      bottom: 0;
       display: block;
+
+      height: 100%;
+      background-image: url(/images/cal-me-bingo-2.31.svg);
+      background-repeat: no-repeat;
+      background-position: 6em 50%;
+      background-size: auto 76%;
+    }
+
+    .summary_private-photo {
+      background-image: linear-gradient(135deg, #504173 0%, #0f0a23 100%);
+      color: white;
+    }
+
+    .summary_private-photo:after {
       content: "";
-      height: 15%;
-      background-color: var(--hero-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
 
-      mask-image: url(/images/acajou.studio.text.svg);
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      mask-position: center;
+      height: 100%;
+      background-image: url(/private-photo/images/logo.svg);
+      background-repeat: no-repeat;
+      background-position: 6em 50%;
+      background-size: auto 76%;
+    }
+
+
+
+    body:has(.target_call-me-bingo:hover) .summary_call-me-bingo {
+      opacity: 1;
       visibility: visible;
-      padding: 0;
-      margin: 0;
-
-    }
-
-    .acajou p {
-      margin: 0;
-      padding: 0;
-
-      font-size: 2vh;
+      
+      background-color: olive;
     }
 
 
-    .acajou {
+
+    .hero-stack {
+
+      display: grid;
+      grid-template-areas: "stack";
+      position: relative;
       padding: 0;
 
-      font-size: 160%;
+    }
+
+    .hero {
+      grid-area: stack;
+      width: auto;
+      height: auto;
 
     }
+
+    .app_hero_summary a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .app_hero_summary h2 {
+      text-align: left;
+    }
+
+    .app_hero_summary {
+      display: flex;
+   position: absolute;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.3em;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      margin-top: 2.5em;
+      margin-bottom: 2.5em;
+      grid-area: stack;
+      width: calc(100% - 26em - 16em);
+      height: calc(100% - 2.5em);
+      z-index: 100;
+      background-color: mediumaquamarine;
+      text-align: left;
+      padding-left: 26em;
+      padding-right: 16em;
+    }
+    -->
   </style>
 </head>
 
 <body>
+  <div class="hero-stack">
+    <header class="hero">
+      <nav class="topnav">
 
 
-  <header class="hero">
-    <nav class="topnav">
-      <a href="/fr">Français</a>
-    </nav>
-    <div class="acajou hero">
-      <h1 class="logo">Acajou<span class="logo-sep">.</span>Studio</h1>
-      <p>A little software shop.
+
+      </nav>
+      <nav class="subsections_nav">
+
+
+        <a href="/fr/">Français</a>
+      </nav>
+      <div class="logo hero replacement">
+        <h1 class="logo">Acajou Studio</h1>
+      </div>
+
+
+    </header>
+    <div class="summary_private-photo app_hero_summary">
+
+      <h2><a href="private-photo">Private Photo</a></h2>
+      <p>Tired of whimsically scrolling through your vacations photos and stumbling on that picture of a mole you sent
+        your doctor
+        last week?
+      <p>Keep these photos out of your main library with Private Photo! Any picture you take within Private Photo
+        stays in the app and doesn't show in your main camera roll or photo library.
+
+
     </div>
+    <div class="summary_call-me-bingo app_hero_summary">
+
+      <h2><a href="call-me-bingo">Call Me Bingo</a></h2>
+      <p> Running a Bingo but don't have any volonteer for reading the numbers?
+      <p>Try Call-Me-Bingo! It draws and reads the results for you so that everyone can play!</p>
 
 
-  </header>
+    </div>
+  </div>
 
   <section class="content">
 
-    <h2>Our Apps & Games</h2>
-    <dl class="app_summaries">
+    <hgroup>
+      <h2>Our Apps & Games</h2>
 
-     <a class="private-photo app_summary" href="private-photo">
-        <dt>Private Photo</dt>
-        <dd><h3>A Photo Taking and Library App. </h3>
-          <p>Tired of scrolling through your family vacations photos and seeing that picture of a mole you sent your doctor last week? Keep you these photos out of your main library with Private Photo! Any picture you take within Private Photo stays in the app and doesn't show in your main camera roll or photo library.</dd>
-      </a>
+    </hgroup>
 
-      <a class="call-me-bingo app_summary" href="call-me-bingo">
-        <dt>Call Me Bingo</dt>
-        <dd><h3>A bingo calling app.</h3>
-          <p> Running a Bingo but don't have any volonteer for reading the numbers? Try Call-Me-Bingo! It draws and reads the results for you so that everyone can play!</p>
-        </dd>
-      </a>
 
- 
-      <!-- 
-      <a class="pre-lune-iconic app_summary" href="pre-lune">
-        <dt>Pre-Lune</dt>
-        <dd>A Survial Game. For the Duke.</dd>
-      </a>
-      <a class="periodity-box app_summary" href="periodity-box">
-        <dt>Periodity Box</dt>
-        <dd>A simple chip-tune-like instrument and music creator.</dd>
-      </a>
-      -->
-    </dl>
-  </section>
+    <ul class="features">
+      <li class="private-photo app_summary">
+        <a id="private-photo" class="target_private-photo" href="private-photo">
+          <h3>Private Photo</h3>
+
+        </a>
+      </li>
+      <li class="call-me-bingo app_summary">
+        <a href="call-me-bingo" class="target_call-me-bingo">
+          <h3>Call Me Bingo</h3>
+
+        </a>
+      </li>
+    </ul>
+
+
+    </section>
+
+
   <footer class="footer">
 
-
+    © Acajou Studio
   </footer>
+
 </body>
-
-
-
-
 
 </html>

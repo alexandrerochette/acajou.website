@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 
 
@@ -10,33 +10,45 @@
     <!--link rel="stylesheet" href="/private-photo.style.css"-->
     <link rel="icon" href="/images/acajou.logo.16.png">
     <title>Private Photo</title>
-<style>
+<style> <!-- 
     html {
-        font-family: "Futura", sans-serif;
-        height: 100%;
+        font-family: "Futura", "Century Gothic", sans-serif;
         color: white;
-        background: rgb(42, 29, 65) 
     }
 
     body {
         margin: 0;
-        /* We use min-height so it's at least the screen size, but can grow */
-        min-height: 100%; 
+   
         
-        /* The Gradient */
+        /* 2. Alternatively, use this modern property if padding-bottom isn't enough */
+        display: flow-root; 
+        
+        background: transparent;
+    }
+
+    html {
+        /* 3. Ensure the gradient stretches to the absolute bottom of the document */
+        height: auto;
+        min-height: 100%;
+        
+        /* Apply background here */
         background-image: linear-gradient(135deg, #504173 0%, #0f0a23 100%);
-        
-        /* This is the magic line: it stops the image from repeating */
-        background-repeat: no-repeat;
-        
-        /* This ensures the gradient stretches to the current size of the body */
         background-size: cover;
-      
+        background-size: 100% 100%;
+        background-attachment: scroll; 
+        background-repeat: no-repeat;
+        background-color: #2a1d41; /* Fallback for the very bottom */
+        overscroll-behavior-y: contain;
     }
 
     .content {
         position: relative;
         z-index: 1;
+        margin-left: auto;
+        margin-right:auto;
+        width: 80%;
+
+        margin-top:0
     }
     .content h1 {
         text-align: center;
@@ -46,8 +58,8 @@
         padding: 0.2em 0.4em;
          background: linear-gradient(to bottom, 
         #2a1d41 0%, 
-        #2a1d41 1.9em, 
-        transparent 2.1em, 
+        #2a1d41 1.4lh, 
+        transparent 1.5lh, 
         transparent 100%);
         
     }
@@ -68,18 +80,22 @@
     }
   
 
-    /* This forces the logo container to its own row */
+   
     .logo.hero {
         flex-basis: 100%;         
         text-align: center;     
+        padding:0;
+        margin:0;
 
     }
 
     h1.logo {
-        color:#e9f8d2;
+       
+
+        color:#fbfafc;
         position: relative;
-        font-size: 500%;
-        font-weight: black;
+        font-size: max(200%, 7.8vh);
+        font-weight: bold;
         display: block;
         
         text-align: center;
@@ -89,6 +105,7 @@
         /*letter-spacing: 0.11cap;*/
         /*text-shadow: 0.05em 0.05em 0.02em rgba(0,0,0,0.5);*/
 
+        margin:0;
     }
 
     h1.logo::before {
@@ -97,13 +114,14 @@
         background-image: url(/private-photo/images/logo.svg);
         background-position: center;
         background-repeat: no-repeat;
-        width: 20%; 
+       /* width: 19%; */
+       height: 20vh;
         aspect-ratio: 1 / 1;
         background-size: contain;       
         visibility: visible;
         padding: 0;
   
-        margin: 0 auto 0.3em auto;
+        margin: 0.5em auto 0.3em auto;
 
     }
     h1.logo::after {
@@ -134,13 +152,114 @@
     .message {
         text-align: center;
     }
+
+    ul.features {
+     
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    
+        scroll-behavior: smooth;
+        list-style: none;
+        padding: 0;
+
+        gap: 2em;
+        /* 1. Pull the element into the margins */
+        /* This calculation pulls the list to the very edges of the screen */
+        margin-left: -10vw; 
+        margin-right: -10vw;
+
+        /* 2. Add padding back so the first item aligns with your 80% container */
+        padding-left: 10vw;
+        padding-right: 10vw;
+
+        /* 3. Hide the scrollbar for the 'app' feel */
+        scrollbar-width: none; 
+         
+    }
+
+    
+
+    ul.features li {
+        /* Adjust width so the peek is visible */
+        /* 70% to 80% usually works best here */
+        
+        /* 1. Set the 'ideal' size to 25em */
+        flex: 0 1 33%; 
+
+        /* 2. Set the 'minimum' size to 20em */
+        min-width: 20em; 
+
+        /* 3. Ensure they don't grow past 25em if there is extra space */
+        max-width: 33%;
+
+        scroll-snap-align: center;
+        color:#0f0a23;
+        background-color: #fbfafc;
+        border-radius: 2em;
+      
+        border: 1px solid rgba(15, 10, 35, 0.3);
+    }
+
+    ul.features li a {
+        text-decoration: none;
+        color: inherit;
+        display: block; 
+        padding: 2rem;
+    }
+    /* Hide scrollbar for a cleaner "app" look (Optional) */
+    ul.features::-webkit-scrollbar {
+        display: none;
+    }
+    ul.features {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    hgroup {
+        text-align: center;
+        margin:0;
+        padding:0;
+        margin-bottom: 4em;
+    }
+    hgroup h2 {
+        font-size: 180%;
+        margin-bottom:0.5em;
+    }
+    hgroup p {
+        margin-top: 0;
+        font-size: 140%
+    }
+    h2 {
+        text-align: center;
+    }
+
+    .features>li {
+        background-repeat: no-repeat;
+        background-size: auto 30%;
+        background-position: center 1em;
+        padding-top: 3em;
+    }
+
+    #camera_link  {
+        background-image: url(/private-photo/images/camera.svg);
+     
+    }
+
+    #privacy_link {
+         background-image: url(/private-photo/images/lock.svg);
+    }
+
+
+    -->
 </style>
 </head>
 <body>
     <header class="hero">
         <nav class="topnav">
             <a href="../" class="home">⌂</a>
-            <a href="./">Private Photo</a>
+        
           
         </nav>
         <nav class="subsections_nav">
@@ -156,8 +275,49 @@
     </header>
 
     <section class="content">
-        <h1>Garder votre librairie de photo soigneusement maintenue</h1>
-        <p class="message"> Bientôt sur l'App Store!</p>
+        <hgroup>
+        <h2 class>Garder votre librairie de photo soigneusement maintenue</h2>
+        <p>Aucun abonnement.</p>
+        </hgroup>
+
+      
+        <ul class="features">
+            <li id="camera_link">
+                <a href="#camera">
+                    <h3>Prendre des Photos</h3>
+                    <p>Un appareil photo complet vous permet de prendre des photos ou des selfies.</p>
+                </a>
+            </li>
+            <li id="gallery_link">
+                <a href="#gallery">
+                    <h3>Voir et organiser les photos</h3>
+                    <p>
+                        La galerie intégrée affiche toutes les photos prises depuis l'application.
+                    </p>
+                </a>
+            </li>
+            <li id="privacy_link">
+                <a href="#privacy">
+                    <h3>Garder vos photo privés</h3>
+                    <p>
+                        Permet de vérouiller l'accès à vos photo avec un NIP ou FaceID
+                    </p>
+                </a>
+            </li>
+        </ul>
+        <!-- 
+        <h3 id="camera">Camera</h3>
+        
+        <p>
+            Camera feature described here</p>
+
+        <h3 id="gallery">Gallery</h3>
+        <p> Gallery feature described here</p>
+
+        <h3 id="privacy">Privacy</h3>
+        <p>Privacy features described here</p>
+
+        -->
     </section>
 
 
@@ -165,4 +325,5 @@
 
 
     </footer>
+
 </body>
