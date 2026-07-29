@@ -18,8 +18,8 @@
 
     html,
     body {
-      
-     min-height: 100dvh;
+
+      min-height: 100dvh;
       margin: 0;
     }
 
@@ -27,24 +27,25 @@
       margin: 0;
 
 
-  display: grid;
+      display: grid;
 
- grid-template-rows: auto 1fr auto; 
-     
+      grid-template-rows: auto 1fr auto;
+
       background: transparent;
 
 
     }
+
     .hero-stack {
       grid-row: 1;
+      height: auto;
     }
 
-  
-    .content
-    {
-      
-        margin-top: 0;
-       grid-row: 2;
+
+    .content {
+
+      margin-top: 0;
+      grid-row: 2;
     }
 
 
@@ -62,27 +63,25 @@
       background-color: hsl(202, 12%, 27%);
       color: hsla(189, 7%, 52%, 1);
     }
-    
+
     html {
       /* 3. Ensure the gradient stretches to the absolute bottom of the document */
-   
-     min-height: 100dvh;
 
-      /* Apply background here */
+      min-height: 100dvh;
+
       background-image: linear-gradient(135deg, white 0%, hsla(189, 10%, 88%, 0.98) 100%);
       background-size: cover;
       background-size: 100% 100%;
       background-attachment: scroll;
       background-repeat: no-repeat;
       background-color: white;
-      /* Fallback for the very bottom */
       overscroll-behavior-y: contain;
     }
 
     h2 {
       font-weight: lighter;
       color: #1F1610;
-   
+
     }
 
     .content {
@@ -100,12 +99,15 @@
     }
 
     header {
-        margin-top: 0;
+
+      color: hsla(189, 7%, 52%, 1);
+
+      margin-top: 0;
       padding: 0.8em 0.4em;
       background: linear-gradient(to bottom,
-          hsla(202, 6%, 43%, 0.75) 0%,
-          hsla(202, 6%, 75%, 0.75) 2.5lh,
-          transparent 2.5lh,
+          hsl(202, 12%, 27%),
+          hsl(202, 12%, 27%) 2.5em,
+          transparent 2.5em,
           transparent 100%);
       text-shadow:
         -1px -1px 0 hsla(189, 12%, 43%, 0.5),
@@ -120,26 +122,44 @@
     }
 
     .hero {
-      display: flex;
+     /* display: flex;
       flex-wrap: wrap;
-      /* Allows the logo div to drop to a new line */
       justify-content: space-between;
-      /* Pushes the two navs to opposite sides */
-      align-items: center;
-      /* Vertically aligns nav items if they have different heights */
+      align-items: center;*/
+      display: grid;
+  grid-template-columns: 1fr auto; 
+  
+  /* ROW 1: Thin/Sized to content | ROW 2: Takes remaining space (or use auto) */
+  grid-template-rows: auto 1fr; 
+  
     }
+
+    .top_nav {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .subsection_nav {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    div.logo {
+        grid-column: 1 / -1; 
+        grid-row: 2;
+    }
+    /*
 
     .topnav,
     .subsections_nav {
       display: flex;
       gap: 1em;
-      /* Adds space between the links */
     }
-
+    */
 
 
     .logo.hero {
-      flex-basis: 100%;
+   
       text-align: center;
       padding: 0;
       margin: 0;
@@ -150,9 +170,10 @@
       background-position: center;
       background-repeat: no-repeat;
       /* width: 19%; */
-      height: 25vh;
-      aspect-ratio: 1 / 1;
-      background-size: auto 56%;
+      width: 100%;
+      height: 100%;
+     
+      background-size: auto min(56%, max(20dvh, 20dvw));
       background-position: 50% 50%;
       visibility: visible;
       padding: 0;
@@ -188,73 +209,42 @@
       text-align: center;
     }
 
-    /*
-    ul.features {
-     
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-    
-        scroll-behavior: smooth;
-        list-style: none;
-        padding: 0;
-
-        gap: 2em;
-   
-        margin-left: -10vw; 
-        margin-right: -10vw;
-
-  
-        padding-left: 10vw;
-        padding-right: 10vw;
-
-     
-        scrollbar-width: none; 
-         
-    } */
-
+ 
     ul {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       width: 100%;
-      /* Shrinks the UL box to match the widest LI */
+
       margin-left: auto;
-      /* Combines with margin-right to center the UL */
       margin-right: auto;
 
       padding: 0;
-      /* Optional: resets default browser bullet padding */
+   
       list-style: none;
       gap: 1.6em;
-      /* Optional: removes default bullet points */
     }
 
     @property --pp-gradient-start {
       syntax: '<color>';
       inherits: false;
       initial-value: white;
-      /* Your starting default color */
     }
 
     @property --pp-gradient-end {
       syntax: '<color>';
       inherits: false;
       initial-value: white;
-      /* Match start to keep it a solid background initially */
     }
 
-    /* 2. Force all items to stretch to the full width of their narrowed parent */
+
     ul li {
       display: grid;
-      /* Turns the item into a flex container */
       justify-content: center;
-      /* Centers the text inside each individual item */
 
       margin: 0;
       padding: 0;
-      min-width: 120px;
+   
 
       border-radius: 2.4rem;
       background-color: white;
@@ -277,20 +267,19 @@
     ul li a {
       display: block;
       margin: 0;
-      padding: 1em;
-
-      padding-top: 16em;
-      padding-left: 5em;
-      padding-right: 5em;
+      padding-bottom: 1.1dvw;
+  padding-top: 16em;
+      padding-top: 17dvw;
+    
+      padding-left: 5.5dvw;
+      padding-right: 5.5dvw;
       text-decoration: none;
+    
       color: inherit;
-
-
-
     }
 
     ul li:hover {
-      transform: scale(1.1) rotate(0deg) translateY(-.5rem);
+      transform: scale(1.05) rotate(0deg) translateY(-.5rem);
       box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
 
@@ -303,52 +292,16 @@
     ul li a.target_private-photo {
       background-image: url(/private-photo/images/logo.svg);
       background-repeat: no-repeat;
-      background-size: 11em;
+      background-size: 11.5dvw;
       background-position: 50% calc(50% - 1em);
     }
-
-
 
     ul li a.target_call-me-bingo {
       background-image: url(/images/cal-me-bingo-2.31.svg);
       background-repeat: no-repeat;
-      background-size: 11em;
+      background-size: 11.5dvw;
       background-position: 50% calc(50% - 1em);
     }
-
-    /*
-    ul.features li {
-
-        flex: 0 1 33%; 
-
-   
-        min-width: 20em; 
-
-    
-        max-width: 33%;
-
-        scroll-snap-align: center;
-        color:#0f0a23;
-        background-color: #fbfafc;
-        border-radius: 2em;
-      
-        border: 1px solid rgba(15, 10, 35, 0.3);
-    }*/
-
-    /* ul.features li a {
-        text-decoration: none;
-        color: inherit;
-        display: block; 
-        padding: 2rem;
-    }
-   
-    ul.features::-webkit-scrollbar {
-        display: none;
-    }
-    ul.features {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }*/
 
     hgroup {
       text-align: center;
@@ -371,27 +324,13 @@
       text-align: center;
     }
 
-    /*
-    .features>li {
-        background-repeat: no-repeat;
-        background-size: auto 30%;
-        background-position: center 1em;
-        padding-top: 3em;
-    }*/
-
-
-
     .replacement * {
       visibility: hidden;
     }
 
     body:has(.target_private-photo:hover) .summary_private-photo {
-
       opacity: 1;
-      /* Fully visible */
       visibility: visible;
-   
-
       color: white;
     }
 
@@ -400,49 +339,53 @@
       color: white;
     }
 
-    .summary_call-me-bingo:after {
+    .summary_call-me-bingo:before {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: block;
-
-      height: 100%;
+      display: inline-block;
+      height: min(30dvh, 50dvw);
+      aspect-ratio: 1 / 1;
       background-image: url(/images/cal-me-bingo-2.31.svg);
       background-repeat: no-repeat;
-      background-position: 6em 50%;
+      background-position: 50% 50%;
       background-size: auto 76%;
     }
 
     .summary_private-photo {
+
       background-image: linear-gradient(135deg, #504173 0%, #0f0a23 100%);
       color: white;
+   
+
     }
 
-    .summary_private-photo:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: block;
 
-      height: 100%;
+
+    .summary_private-photo:before {
+      content: "";
+     /* position: absolute; */
+      display: inline-block;
+
+      height: min(30dvh, 50dvw);
+
+      aspect-ratio: 1 / 1;
       background-image: url(/private-photo/images/logo.svg);
       background-repeat: no-repeat;
-      background-position: 6em 50%;
-      background-size: auto 76%;
-    }
+      background-position: 50% 50%;
+      background-size: 76%;
 
+    }
+    .summary_private-photo p {
+      text-align: left;
+      width: min(100%, 45em);
+      margin-left: auto;
+      margin-right: auto;
+    }
 
 
     body:has(.target_call-me-bingo:hover) .summary_call-me-bingo {
       opacity: 1;
       visibility: visible;
-      
+
       background-color: olive;
     }
 
@@ -469,15 +412,12 @@
       text-decoration: none;
     }
 
-    .app_hero_summary h2 {
-      text-align: left;
-    }
+
 
     .app_hero_summary {
-      display: flex;
-   position: absolute;
-      flex-direction: column;
-      justify-content: center;
+      display: block;
+      align-content: center;
+
       line-height: 1.3em;
       opacity: 0;
       visibility: hidden;
@@ -485,13 +425,14 @@
       margin-top: 2.5em;
       margin-bottom: 2.5em;
       grid-area: stack;
-      width: calc(100% - 26em - 16em);
-      height: calc(100% - 2.5em);
+      width: auto;
+      height: auto;
       z-index: 100;
-      background-color: mediumaquamarine;
-      text-align: left;
-      padding-left: 26em;
-      padding-right: 16em;
+
+        text-align: center;
+    /*  padding-left: min( calc(50dvh - 10em) , 100dvw);*/
+   /*   padding-right: min( calc(50dvh - 10em) , 100dvw);*/
+
     }
     -->
   </style>
@@ -508,7 +449,7 @@
       <nav class="subsections_nav">
 
 
-        <a href="/fr/">English</a>
+        <a href="/">English</a>
       </nav>
       <div class="logo hero replacement">
         <h1 class="logo">Acajou Studio</h1>
@@ -520,8 +461,7 @@
 
       <h2><a href="private-photo">Private Photo</a></h2>
       <p>Vous en avez assez de regarder de tomber sur la photo d'un grain de beauté envoyée à votre médecin la semaine dernière alors que vous regardiez vos photos de vacances? 
-           
-           
+        your doctor?
       <p>Garder ces photos hors de votre librairie principale avec Private photo! Tous les clichés pris avec Private Photos
         restent dans l'application et n'apparaissent pas dans votre dans votre pellicule ou votre galerie de photos principale.
 
@@ -561,7 +501,7 @@
     </ul>
 
 
-    </section>
+  </section>
 
 
   <footer class="footer">
