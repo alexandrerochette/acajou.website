@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1267 1049" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-2658.583333,-61.178754)">
+        <g transform="matrix(1.240664,0,0,0.909853,-745.120332,-664.041982)">
+            <path d="M2988.853,1687.786L2834.457,1687.786C2799.986,1687.786 2772,1649.624 2772,1602.62L2772,921.165C2772,874.161 2799.986,836 2834.457,836L3673.543,836C3708.014,836 3736,874.161 3736,921.165L3736,1602.62C3736,1649.624 3708.014,1687.786 3673.543,1687.786L3531.266,1687.786" style="fill:none;stroke:url(#_Linear1);stroke-width:65.11px;"/>
+        </g>
+        <g transform="matrix(2.402789,0,0,1.210447,-4514.762133,-1820.703737)">
+            <path d="M3241.132,2035.112C3242.754,2031.518 3245.069,2029.464 3247.5,2029.464C3249.931,2029.464 3252.246,2031.518 3253.868,2035.112C3280.122,2093.293 3380.243,2315.168 3415.569,2393.453C3417.76,2398.308 3418.308,2405.266 3416.969,2411.217C3415.63,2417.168 3412.653,2421 3409.369,2421L3085.631,2421C3082.347,2421 3079.37,2417.168 3078.031,2411.217C3076.692,2405.266 3077.24,2398.308 3079.431,2393.453C3114.757,2315.168 3214.878,2093.293 3241.132,2035.112Z" style="fill:url(#_Linear2);"/>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(964,0,0,851.785618,2772,1261.892809)"><stop offset="0" style="stop-color:rgb(125,161,185);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(26,98,150);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(361,0,0,400,3067,2221)"><stop offset="0" style="stop-color:rgb(123,161,184);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(26,98,150);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>

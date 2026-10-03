@@ -1,150 +1,437 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 
 
 <head>
-
-
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/call-me-bingo.style.css">
-    <link rel="icon" href="/images/acajou.logo.16.png">
+    <meta charset="utf-8">
+    <meta name="apple-itunes-app" content="app-id=6751514363, app-argument=https://www.acajou.studio/call-me-bingo/">
+    <link rel="icon" href="/call-me-bingo/images/icon.png">
     <title>Call Me Bingo</title>
+<style> <!-- 
+    html {
+        font-family: "Futura", "Century Gothic", sans-serif;
+        color: white;
+        scroll-behavior: smooth;
+    }
 
-    <style>
-        .gallery {
-            list-style-type: none;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
+    body {
+        margin: 0;
+   
+        
+        /* 2. Alternatively, use this modern property if padding-bottom isn't enough */
+        display: flow-root; 
+        
+        background: transparent;
+    }
 
-        .gallery li {
-            margin: 1rem;
-        }
+    html {
+        /* 3. Ensure the gradient stretches to the absolute bottom of the document */
+        height: auto;
+        min-height: 100%;
+        
+        /* Apply background here */
+        background-image: linear-gradient(135deg, #7da0b9 0%, #1c6396 100%);
+        background-size: cover;
+        background-size: 100% 100%;
+        background-attachment: scroll; 
+        background-repeat: no-repeat;
+        background-color: #2a1d41; /* Fallback for the very bottom */
+        overscroll-behavior-y: contain;
+    }
 
-        .gallery img {
-            max-width: 30vw;
-            max-height: 25vh;
+    .content {
+        position: relative;
+        z-index: 1;
+        margin-left: auto;
+        margin-right:auto;
+        width: 80%;
 
-        }
+        margin-top:0
+    }
+    .content h1 {
+        text-align: center;
+    }
 
-        .content {
-            margin-top: 2rem;
-        }
+    header {
+        padding: 0.2em 0.4em;
+         background: linear-gradient(to bottom, 
+        #16507a 0%, 
+        #16507a 1.4lh, 
+        transparent 1.5lh, 
+        transparent 100%);
+        
+    }
+    header a {
+        text-decoration: none;
+        color: white;
+    }
 
-        figcaption {
-            text-align: center;
-        }
+    .hero {
+        display: flex;
+        flex-wrap: wrap;           /* Allows the logo div to drop to a new line */
+        justify-content: space-between; /* Pushes the two navs to opposite sides */
+        align-items: center;       /* Vertically aligns nav items if they have different heights */
+    }
+    .topnav, .subsections_nav {
+        display: flex;
+        gap: 1em;                 /* Adds space between the links */
+    }
+  
 
-        .gallery img {
-            display: none;
-        }
+   
+    .logo.hero {
+        flex-basis: 100%;         
+        text-align: center;     
+        padding:0;
+        margin:0;
 
-        .gallery figure {
-            cursor: pointer;
-        }
+    }
 
-        .gallery figure::before {
-            display: block;
-            content: "";
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
+    h1.logo {
+       
 
-            width: 15vw;
-            height: 25vh;
+        color:#fbfafc;
+        position: relative;
+        font-size: max(200%, 7.8vh);
+        font-weight: bold;
+        display: block;
+        
+        text-align: center;
+        width: 100%;
+      
+        z-index: 1;
+        /*letter-spacing: 0.11cap;*/
+        /*text-shadow: 0.05em 0.05em 0.02em rgba(0,0,0,0.5);*/
 
-            transition-property: all;
-            transition-duration: .25s;
-            transition-timing-function: ease-in-out;
-            margin-bottom: 0.62rem;
-        }
+        margin:0;
+    }
 
-        .gallery figure.screenshot-intro::before {
-            background-image: url(/call-me-bingo/images/intro.png);
-        }
+    h1.logo::before {
+        content: "";
+        display:block;
+        background-image: url(/call-me-bingo/images/logo.png);
+        background-position: center;
+        background-repeat: no-repeat;
+       /* width: 19%; */
+       height: 20vh;
+        aspect-ratio: 1 / 1;
+        background-size: contain;       
+        visibility: visible;
+        padding: 0;
+  
+        margin: 0.5em auto 0.3em auto;
 
-        .gallery figure.screenshot-example1::before {
-            background-image: url(/call-me-bingo/images/example1.png);
-        }
+    }
+    h1.logo::after {
+        content: "";
+        position: absolute;
+        
+        /* Center it behind the H1 */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+        /* Make this large enough to be the 'background' */
+        aspect-ratio: 1 / 1;
+        height: 250%; /* Taller than the text to create that vertical glow */
+        
+        
+        
+       /* background-image: ;*/
+       background-image: radial-gradient(#256fa3, transparent 65%) ;
+       
+        /* Put it behind everything */
+        z-index: -1; 
+        
+        /* This ensures it doesn't block mouse clicks on links */
+        pointer-events: none; 
+    }
 
-        .gallery figure.screenshot-select-winning-pattern::before {
-            background-image: url(/call-me-bingo/images/select-winning-pattern.png);
-        }
+    .message {
+        text-align: center;
+    }
 
-        .gallery figure.screenshot-fullscreen::before {
-            background-image: url(/call-me-bingo/images/fullscreen.png);
-        }
+    ul.features {
+     
+        display: flex;
+       /* flex-wrap: nowrap;*/
+        flex-wrap: wrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    
+        scroll-behavior: smooth;
+        list-style: none;
+        padding: 0;
 
-        .gallery figure.screenshot-uk::before {
-            background-image: url(/call-me-bingo/images/uk.png);
-        }
+        gap: 2em;
+        /* 1. Pull the element into the margins */
+        /* This calculation pulls the list to the very edges of the screen */
+        margin-left: -10vw; 
+        margin-right: -10vw;
 
-        .gallery figure.screenshot-scanning::before {
-            background-image: url(/call-me-bingo/images/scanning.png);
-        }
+        /* 2. Add padding back so the first item aligns with your 80% container */
+        padding-left: 10vw;
+        padding-right: 10vw;
 
+        /* 3. Hide the scrollbar for the 'app' feel */
+        scrollbar-width: none; 
+         
+    }
 
+    
 
-        .loaded-gallery-item {
-            display: none;
-            opacity: 0;
-            transition-property: all;
-            transition-duration: .25s;
-            transition-timing-function: ease-in-out;
-        }
-
-        .loaded-gallery-item-activated {
-            display: block;
-            opacity: 1;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: calc(100vw - 6rem);
-            height: calc(100vh - 6rem);
-
-            padding: 3em;
-
-            background: rgba(0, 0, 0, 0.5);
+    ul.features li {
+      
+        flex: 0 1 33%; 
 
 
-        }
+        min-width: 20em; 
 
-        .loaded-gallery-item-activated figure {
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            background: var(--content-background);
-            border-radius: 2rem;
-        }
 
-        .loaded-gallery-item-activated figure::before {
-            transition-property: all;
-            transition-duration: .25s;
-            transition-timing-function: ease-in-out;
-            top: 0;
-            left: 0;
-            right: 0;
+        max-width: 30%;
 
-            width: 100%;
-            height: 80%;
-        }
-    </style>
+        scroll-snap-align: center;
+        color:#0f0a23;
+        background-color: #fbfafc;
+        border-radius: 2em;
+      
+        border: 1px solid rgba(15, 10, 35, 0.3);
+    }
+
+    ul.features li a {
+        text-decoration: none;
+        color: inherit;
+        display: block; 
+        padding: 2rem;
+    }
+
+    ul.features::-webkit-scrollbar {
+        display: none;
+    }
+    ul.features {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    hgroup {
+        text-align: center;
+        margin:0;
+        padding:0;
+        margin-bottom: 4em;
+    }
+    hgroup h2 {
+        font-size: 180%;
+        margin-bottom:0.5em;
+    }
+    hgroup p {
+        margin-top: 0;
+        font-size: 140%
+    }
+    h2 {
+        text-align: center;
+    }
+
+
+    .features>li {
+        background-repeat: no-repeat;
+        background-size: auto 30%;
+        background-position: center 1em;
+    
+       padding-bottom:0;
+       margin-bottom: 0;
+       
+        transition: background-color 0.3s ease;
+    }
+
+    .features>li a {
+        background-repeat: no-repeat;
+        background-size: auto 30%;
+        background-position: center 1em;
+        padding-bottom:0;
+        margin-bottom: 0;
+    }
+
+    #uk_us_link   a {
+            background-size: auto 33%;
+        background-position: 2em 1em;
+        padding-top: 6em;
+        background-image: url(/call-me-bingo/images/bingo_balls.svg);
+    }
+
+
+
+    #draws_type_link  a {
+               background-size: auto 33%;
+        background-position: 2em 1em;
+        padding-top: 6em;
+        background-image: url(/call-me-bingo/images/timer.svg);
+    }
+
+    #speech_synth_link a  {
+        background-size: auto 40%;
+        background-position: 2em 0.5em;
+        padding-top: 6em;
+        background-image: url(/call-me-bingo/images/horn.svg);
+        
+    }
+
+    #airplay_link a{
+                background-size: auto 28%;
+        background-position: 3em 1.3em;
+        padding-top: 6em;
+        background-image: url(/call-me-bingo/images/airplay.svg);
+    }
+
+    #pattern_editor_link  a{
+        background-size: auto 33%;
+        background-position: 3em 1em;
+        padding-top: 6em;
+        background-image: url(/call-me-bingo/images/card-pattern7.svg);
+
+    }
+    #card_validation_link {
+        background-size: auto 33%;
+        background-position: 3em 1em;
+        padding-top: 6em;
+        background-image: url(/call-me-bingo/images/card-validation.svg);
+    }
+
+    #uk_us_link:hover {
+        color: white;
+        background-color: #961f04;
+    }
+    #draws_type_link:hover {
+        background-color: #5ea4a5;
+    }
+    #speech_synth_link:hover  {
+        background-color: #78aa28;
+    }
+
+    #airplay_link:hover {
+        color: white;
+        background-color: #5a28af;
+    }
+
+    #pattern_editor_link:hover {
+  
+        background-color: #b29b25;
+    }
+
+    #card_validation_link:hover {
+        color: white;
+        background-color: #1133bb;
+    }
+    
+
+.examplebox_container {
+    display:block;
+    background-color: white;
+    height: 200px;
+    width: 100%;
+}
+
+.feature_section {
+
+   margin-top: 5em;
+
+   max-width: 75em;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.feature_section h2 {
+        font-size: 280%;
+}
+
+.feature_section .content {
+    box-sizing: border-box;
+    background: white;
+    color: black;
+    margin: 0;
+    padding: 2em;
+    border-radius: 2em;
+    width: 100%;
+    font-size: 130%;
+}
+.feature_section .content p {
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.feature_section .gallery {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.feature_section .gallery li {
+    margin: 1rem;
+}
+
+.feature_section .gallery img {
+    max-width: 30vw;
+    max-height: 80vh;
+}
+
+
+.feature_section .gallery .landscape img {
+    max-width: 65vw;
+    max-height: 65vh;
+}
+
+
+.feature_section .gallery video {
+    max-width: 30vw;
+    max-height: 80vh;
+}
+        
+.video-container {
+  border-radius: 2em;
+  overflow: hidden; 
+  isolation: isolate; 
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block; 
+}
+
+.hidden {
+    display:none
+}
+
+.features li:target .hidden {
+    display: block;
+}
+
+.features li#uk_us_link:target a {
+    display: block;
+    background-image: none;
+    padding-top: 1em;
+}
+
+.features li#draws_type_link:target a {
+    display: block;
+    background-image: none;
+    padding-top: 1em;
+}
+    -->
+</style>
 
 </head>
-
 <body>
-
-
     <header class="hero">
         <nav class="topnav">
-            <a href="../" class="home">⌂</a>
-            <a href="support/">Support</a>
+            <a href="../" class="home">Acajou.Studio</a>
+        
+          
+        </nav>
+        <nav class="subsections_nav">
+            <a href="privacy" class="privacy">Déclaration de confidentialité</a>
+          
             <a href="/call-me-bingo">English</a>
         </nav>
         <div class="logo hero">
@@ -155,123 +442,362 @@
     </header>
 
     <section class="content">
+        <hgroup>
+        <h2 class>Un excellent animateur de bingo !</h2>
+        <p>Tirages et annonces de bingo automatisés, tout le monde peut participer.</p>
+        <p><a href="https://apps.apple.com/app/id6751514363" 
+            target="_blank" 
+            rel="noopener noreferrer">
+            <img src="/images/appstore-download/en/black.svg" 
+                alt="Download on the App Store" 
+                height="40"
+                style="height: 40px; width: auto;">
+            </a></p>
+        </hgroup>
 
-        <p>Apportez une touche d'enthousiasme à vos parties de Bingo avec une solution moderne et complète, conçue pour rendre l'organisation de vos jeux 
-            simple et amusante
-        <ul>
-            <li>Support pour Bingo de Style Nord-Américain (75 boules) ou Britannique (90 boules)</li>
-            <li>Tirez la prochaine boule au hasard, à intervalles réguliers ou manuellement</li>
-            <li>Profitez de l’annonce vocale intégrée avec vitesse réglable</li>
-            <li>Projetez l’affichage des tirages sur grand écran via AirPlay</li>
-            <li>Vérifiez instantanément les cartes gagnantes en les scannant ou en les saisissant</li>
+ 
+        <ul class="features">
+            <li id="uk_us_link">
+            
+            
+                <a href="#uk_us">
+                 
+                        <h3>Bingo Classique ou Loto</h3>
+                            <p>Prend en charge le bingo à 75 boules et à 90 boules (Loto).</p>
+                            
+                      </a>
+         
+          
+            </li>
+            <li id="draws_type_link">
+                   
+                <a href="#draws_type">
+                        <h3>Tirage Configurable</h3>
+                        <p>
+                            Tirez la prochaine boule au hasard, à intervalles réguliers ou manuellement
+                        </p>
+                </a>       
+           
+           
+            </li>
+            <li id="speech_synth_link">
+             
+
+             <a href="#speech_synth">
+                 <h3>Énonciation Des Résultats</h3>
+                    <p>
+                       Profitez de l’annonce vocale intégrée avec vitesse réglable
+                    </p>
+                    
+             </a>
+              
+            </li>
+
+            <li id="airplay_link">
+                <a href="#airplay">
+                    <h3>Support AirPlay</h3>
+                    <p>
+                      Projetez l’affichage des tirages sur grand écran via AirPlay
+                    </p>
+                </a>
+            </li>
+
+            <li id="pattern_editor_link">
+                <a href="#pattern_editor">
+                    <h3>Éditeur de motifs gagnants</h3>
+                    <p>
+                      Créez vos propres motifs gagnants!
+                    </p>
+                </a>
+            </li>
+
+            <li id="card_validation_link">
+                <a href="#card_validation">
+                    <h3>Validation de Carte</h3>
+                    <p>
+                       Vérifiez instantanément les cartes gagnantes en les scannant ou en les saisissant
+                    </p>
+                </a>
+            </li>
+
+            
         </ul>
-        <p></p>Animez des parties de bingo fluides et captivantes — que ce soit à la maison, dans la communauté ou lors de grands événements !</p>
-
-        <h2>Captures d'Écran</h2>
-        <ul class="gallery">
-            <li>
-                <figure class="screenshot-intro  gallery-item">
-                    <img src="/call-me-bingo/images/intro.png" alt="Écran d'Accueil Screenshot">
-                    <figcaption>Écran d'Accueil</figcaption>
-                </figure>
-            </li>
-
-            <li>
-                <figure class="screenshot-example1 gallery-item">
-                    <img src="/call-me-bingo/images/example1.png" alt="Écran d'Accueil Screenshot">
-                    <figcaption>Écran principale</figcaption>
-                </figure>
-            </li>
-
-            <li>
-                <figure class="screenshot-fullscreen gallery-item">
-                    <img src="/call-me-bingo/images/fullscreen.png" alt="Écran d'Accueil Screenshot">
-                    <figcaption>Présentation en plein écran de la partie en cours (AirPlay)</figcaption>
-                </figure>
-            </li>
-
-            <li>
-                <figure class="screenshot-select-winning-pattern gallery-item">
-                    <img src="/call-me-bingo/images/select-winning-pattern.png" alt="Écran d'Accueil Screenshot">
-                    <figcaption>Selection des Conditions Gagnantes</figcaption>
-                </figure>
-            </li>
-
-            <li>
-                <figure class="screenshot-uk gallery-item">
-                    <img src="/call-me-bingo/images/uk.png" alt="Écran d'Accueil Screenshot">
-                    <figcaption>Bingo de Style Britannique (90 boules)</figcaption>
-                </figure>
-            </li>
-
-            <li>
-                <figure class="screenshot-scanning gallery-item">
-                    <img src="/call-me-bingo/images/scanning.png" alt="Écran d'Accueil Screenshot">
-                    <figcaption>Numérisation de Carte</figcaption>
-                </figure>
-            </li>
-        </ul>
+  
     </section>
+      <section id="overview" class="feature_section">
+          <h2>Galerie de captures d'écran</h2>
+        <div class="content">
+               <ul class="gallery"> 
+                    <li>
+                         <figure class="screenshot-uk gallery-item">
+                          <div class="video-container">
+                        <video  playsinline width="100%" class="hoverVideo">
+                                <source src="/call-me-bingo/images/screenshots/intro.webm" type="video/mp4">
+                            </video>
+                        </div>
+                              <figcaption>Introduction (Mode Clair)</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/intro-pill.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Introduction (Mode Sombre)</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                  
+                     <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/example1.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Affichage principal</figcaption>
+                            </figure>
+                    </figure>
+                      <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/green-theme.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Thèmes de couleurs sélectionnables</figcaption>
+                            </figure>
+                    </figure>
+                      <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/settings.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Paramètres Extensifs</figcaption>
+                            </figure>
+                    </figure>
+                </ul>
+            </p>
+        </div>
+
+      </section>
+    <section id="uk_us" class="feature_section">
+        <h2>Style Bingo Classique et Loto</h2>
+        <div class="content">
+            <p>Tous les composants de Call Me Bingo prennent en charge le bingo à 75 et à 90 boules, qu'il s'agisse de l'affichage des résultats, de la validation des cartons ou de la numérisation des cartons.
+                <ul class="gallery"> 
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/example1.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Prise en charge du format à 75 boules</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/uk.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Bingo de Style Britannique (90 boules)</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </section>
+
+
+    <section id="draws_type" class="feature_section">
+        <h2>Tirages Configurables</h2>
+        <div class="content">
+            <p>Vous pouvez configurer les tirages pour qu'ils soient manuels (vous sélectionnez manuellement la boule tirée), automatiques (les boules sont tirées au sort une par une) ou basés sur une minuterie (tirage aléatoire à intervalles réguliers).
+                <ul class="gallery"> 
+                    <li>
+                         <figure class="screenshot-uk gallery-item">
+                          <div class="video-container">
+                        <video  playsinline width="100%" class="hoverVideo">
+                                <source src="/call-me-bingo/images/screenshots/draw_modes.webm" type="video/mp4">
+                            </video>
+                        </div>
+                              <figcaption>Types de Tirages</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/manual.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Tirage Manuel</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/uk.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Tirages Automatiques</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                    
+                </ul>
+            </p>
+        </div>
+    </section>
+
+
+
+    <section id="speech_synth" class="feature_section">
+        <h2>Énonciation Des Résultats</h2>
+        <div class="content">
+            <p>Le résultat de chaque tirage est lu à voix haute. Vous avez la possibilité de répéter la lecture, de lire chaque lettre et chaque chiffre séparément, de modifier la vitesse de lecture ou de la désactiver complètement.
+                <ul class="gallery"> 
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/settings.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Paramètre de lecture</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                
+                </ul>
+            </p>
+        </div>
+    </section>
+
+
+
+      <section id="airplay" class="feature_section">
+        <h2>Support AirPlay</h2>
+        <div class="content">
+            <p>Affichez les résultats des tirages sur grand écran grâce au partage d'écran AirPlay ! Vous avez le choix d'afficher la figure gagnante ou simplement les tirages et les numéros sortis.
+                <ul class="gallery"> 
+                    <li>
+                        <figure class="screenshot-uk gallery-item landscape">
+                            <img src="/call-me-bingo/images/screenshots/fullscreen.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Plein Écran via AirPlay</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="screenshot-uk gallery-item landscape">
+                            <img src="/call-me-bingo/images/screenshots/fullscreen-nopattern.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Plein Écran sans Motifs Gagnants via AirPlay</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </section>
+
+
+    <section id="pattern_editor" class="feature_section">
+        <h2>Éditeur de motifs gagnants</h2>
+        <div class="content">
+            <p>Vous pouvez créer vos propres combinaisons gagnantes ou en choisir une parmi une liste des plus courantes.
+                <ul class="gallery"> 
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/select-winning-pattern.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Sélection de la combinaison gagnante – Mode 75 boules</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/edit-pattern.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Création d’un motif gagnant pour un bingo à 75 boules</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                   
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/uk-select-winning-pattern.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Sélection de la combinaison gagnante – Mode Loto à 90 boules</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </section>
+
+    <section id="card_validation" class="feature_section">
+        <h2>Validation de Carte</h2>
+        <div class="content">
+            <p>Pour vérifier si une carte est gagnante, vous pouvez saisir manuellement les numéros dans l'application ou utiliser le scanner intégré pour tenter de la numériser directement en quelques secondes !
+                <ul class="gallery"> 
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/scanning.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Numérisation automatique des cartes</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="screenshot-uk gallery-item">
+                            <img src="/call-me-bingo/images/screenshots/detected-card.png" alt="Écran d'Accueil Screenshot">
+                                <figcaption>Validation de Carte</figcaption>
+                            </figure>
+                        </figure>
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </section>
+
+      <!--div>
+            <script type="text/javascript">
+
+function get_hue(idx) {
+   /* Here we use 31 bit numbers because JavaScript doesn't have a 32 bit unsigned type, and so the conversion to float would produce a negative value. */
+   var bitcount = 31;
+   
+   /* Reverse the bits of idx into ridx */
+   var ridx = 0, i = 0;
+   for (i=0; i < bitcount; i++) {
+      ridx = (ridx << 1) | (idx & 1);
+      idx >>>= 1;
+   }
+   
+   /* Divide by 2**bitcount */
+   var hue = ridx / Math.pow(2, bitcount);
+   
+   /* Start at .6 (216 degrees) */
+   return (hue + 0.0085) % 1;
+}
+
+var next_hue = 0;
+function add_colored_thingy(to_whom) {
+   var hue = get_hue(next_hue++);
+   var degrees = Math.round(hue * 360);
+   var newElement = '<span><span class="examplebox" style="background-color: hsl(' + degrees + ', 83%, 40%);">' + degrees.toString() + "<\/span><\/span>";
+   to_whom.innerHTML = to_whom.innerHTML + newElement;
+}
+</script>
+
+<p><a class="examplebox_container" onclick="add_colored_thingy(this);" href="javascript:void(0)"> </a>
+        </div-->
+
     <footer class="footer">
 
-
+       
     </footer>
+
 </body>
 
 <script>
+    
+    // Keep track of the currently playing video
+let activeVideo = null;
 
-    document.addEventListener("DOMContentLoaded", function () {
+// Select all videos with the class name
+const videos = document.querySelectorAll('.hoverVideo');
 
-        console.log("DOM ready!");
-        const activatedClassName = "loaded-gallery-item-activated"
-        function handleGalleryClick(event, sourceThumnailItem, targetFullScreenItem) {
-            console.log("clicked gallery item")
+videos.forEach(video => {
+    console.log("Adding video for " + video)
+  video.addEventListener('mouseenter', () => {
+    // If a different video is currently playing, pause it first
+    if (activeVideo && activeVideo !== video) {
+      activeVideo.pause();
+      // Optional: reset previous video back to frame 0
+      // activeVideo.currentTime = 0; 
+    }
 
-            const source = targetFullScreenItem
-            //  const targetItem = event.target || event.srcElement;
-            console.log(source.classList)
-            if (source.classList.contains(activatedClassName)) {
-                source.classList.remove(activatedClassName);
+    // Play the hovered video and set it as active
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        // Handle playback interrupt safely
+      });
+    }
 
-            } else {
-                source.classList.add(activatedClassName);
-            }
-
-            console.log(source.classList)
-        }
-
-        function handleGalleryFullScreenClick(event, sourceThumnailItem, targetFullScreenItem) {
-            console.log("clicked on big image")
-
-            targetFullScreenItem.classList.remove(activatedClassName);
-        }
-
-        const elements = document.getElementsByClassName("gallery-item");
-        var relements = []
-        for (const galleryElement of elements) {
-            relements.push(galleryElement)
-        }
-        console.log(relements)
-        relements.forEach(function (galleryElement) {
-            const parentGalleryDiv = document.createElement("div");
-            parentGalleryDiv.classList.add("gallery");
-            parentGalleryDiv.classList.add("loaded-gallery-item");
-
-
-            const clonedElement = galleryElement.cloneNode(true);
-            parentGalleryDiv.append(clonedElement);
-
-            galleryElement.onclick = function (event) { handleGalleryClick(event, galleryElement, parentGalleryDiv) };
-            parentGalleryDiv.onclick = function (event) { handleGalleryClick(event, galleryElement, parentGalleryDiv) };
-            document.documentElement.append(parentGalleryDiv);
-        })
-        for (const galleryElement of relements) {
-
-        }
-
-    });
-
-
+    activeVideo = video;
+  });
+});
+  
 </script>
-
 </html>
