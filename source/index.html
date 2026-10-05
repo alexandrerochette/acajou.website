@@ -303,6 +303,23 @@
       background-position: 50% calc(50% - 1em);
     }
 
+    ul li a.target_prelune{
+      background-image: url(/prelune/images/logo.png);
+      background-repeat: no-repeat;
+      background-size: 17dvw;
+      background-position: 50% calc(50% - 1em);
+    }
+
+
+    ul li:has(a.target_prelune):hover {
+      --pp-gradient-start: #060357;
+      --pp-gradient-end: #0f0a23;
+      background-image: url(/prelune/images/sky.png);
+        background-size: cover;
+       background-position: 50% calc(50% - 1em);
+      color: white;
+    }
+
     hgroup {
       text-align: center;
       margin: 0;
@@ -434,6 +451,32 @@
    /*   padding-right: min( calc(50dvh - 10em) , 100dvw);*/
 
     }
+
+    body:has(.target_prelune:hover) .summary_prelune {
+      opacity: 1;
+      visibility: visible;
+      color: white;
+    }
+    .summary_prelune {
+      background-color: #060357;
+
+      background-image: url(/prelune/images/logo.png);
+      background-repeat: no-repeat;
+      background-position: 50% -5%;
+      background-size: auto 72%;
+      padding-top: 15em;
+     }
+    
+    .summary_prelune:before {
+      content: "";
+      display: inline-block;
+
+ 
+    }
+
+.emphasis {
+  font-style: italic;
+}
     -->
   </style>
 </head>
@@ -475,6 +518,17 @@
 
 
     </div>
+
+      <div class="summary_prelune app_hero_summary" id="sky">
+
+      <h2><a href="prelune">Prelune</a></h2>
+      <p>Welcome to this world, Specimen C002.
+      <p>Your goal is to fend off the hostile alien invasion from every corner of the Alpha Quadrant. 
+      <p>Do not mind the nightmares.
+      <p class="emphasis">&mdash; For the Duke.</p>
+
+
+    </div>
   </div>
 
   <section class="content">
@@ -498,6 +552,13 @@
 
         </a>
       </li>
+
+      <!-- li class="prelune app_summary">
+        <a id="prelune" class="target_prelune" href="prelune">
+          <h3>Prelune Game</h3>
+
+        </a>
+      </li -->
     </ul>
 
 
@@ -510,5 +571,6 @@
   </footer>
 
 </body>
+
 
 </html>
